@@ -216,7 +216,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>83779EDE150F8850008E021C</string>
+						<string>83779F0F150F8D9C008E021C</string>
 						<key>history</key>
 						<array>
 							<string>836A72EE150F85960042EB10</string>
@@ -309,14 +309,21 @@
 								<string>E4B69B4A0A3A1720003C02F2</string>
 								<string>E4B69E1C0A3A1BDC003C02F2</string>
 								<string>83779E72150F86F8008E021C</string>
+								<string>83779E75150F86F8008E021C</string>
+								<string>83779E78150F86F8008E021C</string>
 								<string>83779E83150F86F8008E021C</string>
+								<string>83779E94150F86F8008E021C</string>
+								<string>83779E9B150F86F8008E021C</string>
+								<string>83779E9E150F86F8008E021C</string>
+								<string>83779EA5150F86F8008E021C</string>
+								<string>83779EA8150F86F8008E021C</string>
 								<string>BB4B014C10F69532006C3DED</string>
 								<string>1C37FBAC04509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>29</integer>
+									<integer>6</integer>
 									<integer>5</integer>
 									<integer>4</integer>
 									<integer>0</integer>
@@ -358,7 +365,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>83993F8315079C0700DF803F</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>udpateBoxView.h</string>
+								<string>corruptVideoApp.cpp</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -366,11 +373,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>83993F8415079C0700DF803F</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>udpateBoxView.h</string>
+										<string>corruptVideoApp.cpp</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>83779ED7150F8850008E021C</string>
+										<string>83779F0E150F8D9C008E021C</string>
 										<key>history</key>
 										<array>
 											<string>83993FDF1507A90000DF803F</string>
@@ -415,7 +422,6 @@
 											<string>8373AD06150E456F00E97A0B</string>
 											<string>8373AD34150E4E6500E97A0B</string>
 											<string>8373AD35150E4E6500E97A0B</string>
-											<string>8373AE03150E555F00E97A0B</string>
 											<string>8373AE2C150E55EC00E97A0B</string>
 											<string>8373AE2F150E55EC00E97A0B</string>
 											<string>8373AE37150E561A00E97A0B</string>
@@ -424,9 +430,38 @@
 											<string>8373AE4E150E565900E97A0B</string>
 											<string>8373AE68150E572000E97A0B</string>
 											<string>836A72C2150F65470042EB10</string>
-											<string>83779ED4150F8850008E021C</string>
-											<string>83779ED5150F8850008E021C</string>
-											<string>83779ED6150F8850008E021C</string>
+											<string>83779EE6150F8C49008E021C</string>
+											<string>83779EEF150F8D9C008E021C</string>
+											<string>83779EF0150F8D9C008E021C</string>
+											<string>83779EF1150F8D9C008E021C</string>
+											<string>83779EF2150F8D9C008E021C</string>
+											<string>83779EF3150F8D9C008E021C</string>
+											<string>83779EF4150F8D9C008E021C</string>
+											<string>83779EF5150F8D9C008E021C</string>
+											<string>83779EF6150F8D9C008E021C</string>
+											<string>83779EF7150F8D9C008E021C</string>
+											<string>83779EF8150F8D9C008E021C</string>
+											<string>83779EF9150F8D9C008E021C</string>
+											<string>83779EFA150F8D9C008E021C</string>
+											<string>83779EFB150F8D9C008E021C</string>
+											<string>83779EFC150F8D9C008E021C</string>
+											<string>83779EFD150F8D9C008E021C</string>
+											<string>83779EFE150F8D9C008E021C</string>
+											<string>83779EFF150F8D9C008E021C</string>
+											<string>83779F00150F8D9C008E021C</string>
+											<string>83779F01150F8D9C008E021C</string>
+											<string>83779F02150F8D9C008E021C</string>
+											<string>83779F03150F8D9C008E021C</string>
+											<string>83779F04150F8D9C008E021C</string>
+											<string>83779F05150F8D9C008E021C</string>
+											<string>83779F06150F8D9C008E021C</string>
+											<string>83779F07150F8D9C008E021C</string>
+											<string>83779F08150F8D9C008E021C</string>
+											<string>83779F09150F8D9C008E021C</string>
+											<string>83779F0A150F8D9C008E021C</string>
+											<string>83779F0B150F8D9C008E021C</string>
+											<string>83779F0C150F8D9C008E021C</string>
+											<string>83779F0D150F8D9C008E021C</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -742,6 +777,8 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>83779EEB150F8C49008E021C</string>
+		<string>83779EEC150F8C49008E021C</string>
 		<string>839943541507CD9500DF803F</string>
 		<string>/Users/Martial/Git/of_preRelease_v007_osx/apps/martial/CorruptVideo/CorruptVideo.xcodeproj</string>
 	</array>
