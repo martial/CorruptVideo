@@ -6,7 +6,13 @@ This 2011 version built with OpenFrameworks is a collaboration project between R
 
 Corrupt and Corrupt Video are using the same algorithm, which consists of a binary alteration of the original data. So technically Corrupt damages the data on a binary level, which result in unpredictable and beautiful results.
 
+Get the working version here : <a href="http://www.uglitch.com">http://www.uglitch.com<a/>
+
 Working on Mac osx 10.6
+
+A template for the data folder can be found here : 
+
+<a href="http://www.uglitch.com/app/data.zip">http://www.uglitch.com/app/data.zip<a/>
 
 Dependencies ( And many thanks to them ! ) : 
 
