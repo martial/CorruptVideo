@@ -169,7 +169,7 @@ string recordManager::getNextAvailableName (string subdir) {
 	
 	// clean wrong files -
 	int validCount = 0;
-	for ( int i=0; i<numOfFiles; i++ ) {
+	for ( int i=numOfFiles-1; i>=0; i-- ) {
 		ofFile file = dir.getFile(i);
 		string ext = file.getExtension();
 		if (ext == "tmp" || ext == "ficache" ) {

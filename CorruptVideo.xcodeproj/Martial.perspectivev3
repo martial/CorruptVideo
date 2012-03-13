@@ -216,7 +216,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>83779F0F150F8D9C008E021C</string>
+						<string>83779F16150F8E3A008E021C</string>
 						<key>history</key>
 						<array>
 							<string>836A72EE150F85960042EB10</string>
@@ -323,14 +323,15 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>6</integer>
+									<integer>45</integer>
+									<integer>44</integer>
 									<integer>5</integer>
 									<integer>4</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {300, 1059}}</string>
+							<string>{{0, 35}, {300, 1059}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -365,7 +366,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>83993F8315079C0700DF803F</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>corruptVideoApp.cpp</string>
+								<string>recordManager.cpp</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -373,11 +374,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>83993F8415079C0700DF803F</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>corruptVideoApp.cpp</string>
+										<string>recordManager.cpp</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>83779F0E150F8D9C008E021C</string>
+										<string>83779F15150F8E3A008E021C</string>
 										<key>history</key>
 										<array>
 											<string>83993FDF1507A90000DF803F</string>
@@ -438,13 +439,11 @@
 											<string>83779EF3150F8D9C008E021C</string>
 											<string>83779EF4150F8D9C008E021C</string>
 											<string>83779EF5150F8D9C008E021C</string>
-											<string>83779EF6150F8D9C008E021C</string>
 											<string>83779EF7150F8D9C008E021C</string>
 											<string>83779EF8150F8D9C008E021C</string>
 											<string>83779EF9150F8D9C008E021C</string>
 											<string>83779EFA150F8D9C008E021C</string>
 											<string>83779EFB150F8D9C008E021C</string>
-											<string>83779EFC150F8D9C008E021C</string>
 											<string>83779EFD150F8D9C008E021C</string>
 											<string>83779EFE150F8D9C008E021C</string>
 											<string>83779EFF150F8D9C008E021C</string>
@@ -461,7 +460,9 @@
 											<string>83779F0A150F8D9C008E021C</string>
 											<string>83779F0B150F8D9C008E021C</string>
 											<string>83779F0C150F8D9C008E021C</string>
-											<string>83779F0D150F8D9C008E021C</string>
+											<string>83779F12150F8E3A008E021C</string>
+											<string>83779F13150F8E3A008E021C</string>
+											<string>83779F14150F8E3A008E021C</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
