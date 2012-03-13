@@ -1,0 +1,177 @@
+/*
+ *  corruptDisplay.cpp
+ *  CorruptVideo
+ *
+ *  Created by Martial on 08/03/2012.
+ *  Copyright 2012 Martial. All rights reserved.
+ *
+ */
+
+#include "corruptDisplay.h"
+
+void corruptDisplay::setup(){
+	
+	font.loadFont("fonts/Lekton-bold.ttf", 12, true, false, false);
+	bigFont.loadFont("fonts/Lekton-bold.ttf", 512, true, false, false);
+	sndPlayer.loadSound("mp3/bip.mp3", false);
+	
+	oldSec = 0;
+	
+	message = "";
+	messageYPos = -100;
+	
+	// info txt
+	ofBuffer file;
+	file = ofBufferFromFile("txt/info.txt", true);
+	this->infoStr = file.getText();
+	
+	textBox.init();
+	
+}
+
+void corruptDisplay::update() {
+	
+}
+
+void corruptDisplay::draw() {
+	
+	if(bMessageVisible && messageYPos < 0) 
+		messageYPos += 2.0;
+		
+	
+	if(!bMessageVisible && messageYPos > -100) 
+		messageYPos -= 2.0;
+	
+	
+	ofPushMatrix();
+	ofTranslate(0, messageYPos, 0);
+	drawTopLineString(message);
+	ofPopMatrix();
+}
+
+void corruptDisplay::drawPreRecordSec(int secs) {
+	
+	secs -= 1;
+	
+	int screenW = ofGetWidth();
+	int screenH = ofGetHeight();
+	
+	ofRectangle typeBox = bigFont.getStringBoundingBox(ofToString(secs),0,0);
+	
+	ofPushMatrix();
+	ofTranslate(screenW * .5 - typeBox.width * .5, screenH * .5 - typeBox.height * .5 + typeBox.height, 0);
+	ofSetColor(255, 0, 0, 125);
+	ofEnableAlphaBlending();
+	bigFont.drawString(ofToString(secs), 0,0);
+	
+	
+	ofDisableAlphaBlending();
+	ofPopMatrix();
+	
+	if ( oldSec != secs ) {
+		
+		ofSetColor(255, 0, 0);
+		sndPlayer.play();
+		
+	} else {
+		ofSetColor(255,255,255);
+	}
+	
+	oldSec = secs;
+	
+}
+
+void corruptDisplay::drawRecordingSec(int secs) {
+	
+	secs -= 1;
+	
+	drawTopLineString(ofToString(secs) + " secs left");
+	
+	if(ofGetFrameNum() % 16 > 8 ) { 
+		ofSetColor(255, 0, 0);
+		ofCircle(20, 16, 6);	
+	}
+	
+}
+
+void corruptDisplay::drawTopLineString(string str) {
+	
+	ofEnableAlphaBlending();
+	ofSetColor(0, 0, 0, 125);
+	ofRect(0,0, ofGetWidth(), 35);
+	ofDisableAlphaBlending();
+	
+	ofSetColor(255);
+	font.drawString(str, 35,20);
+}
+
+void corruptDisplay::showMessage (string message, int duration) {
+	this->message = message;
+	timerMessage.setup(duration, 1);
+	timerMessage.startTimer();
+	ofAddListener(timerMessage.TIMER_REACHED, this, &corruptDisplay::onTimerDoneHandler);
+	bMessageVisible = true;
+	
+	
+}
+
+void corruptDisplay::onTimerDoneHandler(int & e) {
+		
+	ofRemoveListener(timerMessage.TIMER_REACHED, this, &corruptDisplay::onTimerDoneHandler);
+	bMessageVisible = false;
+}
+
+void corruptDisplay::showInfo () {
+		
+	ofEnableAlphaBlending();
+	ofSetColor(0, 0, 0, 125);
+	ofRect(0,0,ofGetWidth(), ofGetHeight());
+	
+	ofSetColor(255);
+	font.drawString(infoStr, 25,25);
+	
+	ofDisableAlphaBlending();
+	
+	
+}
+
+
+void corruptDisplay::showInputBox () {
+	
+	
+	
+	ofSetColor(255);
+	ofPushMatrix();
+	
+	ofTranslate((int)(ofGetWidth() * .5), (int)(ofGetHeight()*.5), 0);
+	ofEnableAlphaBlending();
+	ofSetColor(0, 0, 0, 75);
+	ofRect(-204,(int) (- 15) , 408 , 25);
+	ofDisableAlphaBlending();
+	
+	//ofTranslate(ofGetWidth() * .5, ofGetHeight()*.5, 0);
+	ofTranslate( (int)(- textBox.getWidth() * .5),  2, 0);
+	ofSetColor(255);
+	textBox.draw();
+	ofPopMatrix();
+	
+	ofPushMatrix();
+	
+	
+	ofTranslate((int)(ofGetWidth() * .5), (int)(ofGetHeight()*.5), 0);	
+	
+	ofEnableAlphaBlending();
+	ofSetColor(0, 0, 0, 75);
+	ofRect(-84, -47 , 168 , 25);
+	ofDisableAlphaBlending();
+	ofSetColor(255);
+	string req = "TYPE YOUR REQUEST : ";
+	font.drawString(req, (int)(- font.stringWidth(req) * .5), -31);
+	ofPopMatrix();
+	
+	ofPopMatrix();
+	
+	
+	
+}
+
