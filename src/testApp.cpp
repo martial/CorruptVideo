@@ -5,7 +5,7 @@ void testApp::setup(){
 	
 	ofSetLogLevel(OF_LOG_NOTICE);
 	ofSetFrameRate(24);
-	updateChecker.checkIfValid("0.1");
+	updateChecker.checkIfValid("0.2");
 	
 	app = new corruptVideoApp();
 	app->setup();

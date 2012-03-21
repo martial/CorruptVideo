@@ -104,10 +104,10 @@ void glitchManager::glitchThis(unsigned char * pixels, int width, int height, of
 	// thanks to the original example by Kyle McDonald
 	// implementation is quite similar, no surprises in there
 	
+	
 	// we clear memory first 
 	
 	bufferImg->clear();
-	//if(bHasLoaded) glitchImg->clear();
 	
 	// set pixels and be sure we're converting it to RGB, we'll need this further for image recording
 	// also alpha is needed for desktop mode 
@@ -115,24 +115,21 @@ void glitchManager::glitchThis(unsigned char * pixels, int width, int height, of
 	bufferImg->setFromPixels(pixels, width, height, colorMode, true);
 	bufferImg->setImageType(OF_IMAGE_COLOR);
 	
-	// save image ( one frame ) locally
-	bufferImg->saveImage(outputImgURL, currentQuality);
+	// open buffer and save image to memory
 	
-	// open buffer from file to get binary data
-	ofBuffer file = ofBufferFromFile(outputImgURL, true);
+	ofBuffer  * buffer = new ofBuffer(); 
+	ofSaveImage(bufferImg->getPixelsRef(), *buffer, imgFormat, currentQuality);
 	
-	// send this data to glitch it!
-	currentGlitch->glitch(file.getBinaryBuffer(), file.size());
+	// send this data to glitch it into memory!
+	currentGlitch->glitch(buffer->getBinaryBuffer(), buffer->size());
 	
-	file.resetLineReader();
-	// create a new image from this
-	ofBufferToFile(outputImgURL, file, true);
+	buffer->resetLineReader();
 	
 	// and then we try to load this image again
 	// glitch can be randomly corrupted, so we have to be careful on this 
 	
 	bHasLoaded = true;
-	if(!glitchImg->loadImage(file)) {
+	if(!glitchImg->loadImage(*buffer)) {
 		bHasLoaded = false;
 		
 	}
@@ -141,8 +138,8 @@ void glitchManager::glitchThis(unsigned char * pixels, int width, int height, of
 	glitchImg->setImageType(OF_IMAGE_COLOR);
 	
 	// clear mem
-	file.clear();
-	
+	buffer->clear();
+	delete buffer;
 }
 
 
@@ -191,7 +188,8 @@ void glitchManager::setFileFormat(ofImageFormat format) {
 		default:
 			break;
 	}
-	outputImgURL = "images/buffer" + ext;
+	imgFormat = format;
+	
 }
 
 

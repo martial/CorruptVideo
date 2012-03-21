@@ -20,7 +20,6 @@ class mergedCorruptGlitch : public  abstractGlitch {
 	mergedCorruptGlitch();
 	void glitch(char * buffer, int filesize);
 	
-	
 };
 
 #endif

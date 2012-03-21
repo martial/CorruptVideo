@@ -62,7 +62,6 @@ private:
 	vector<abstractGlitch*>	glitches;
 	abstractGlitch	*		currentGlitch;
 	
-	string								outputImgURL;
 	vector<ofImageQualityType>			qualityLevels;
 	vector<ofImageFormat>				formatsAllowed;
 	ofImageQualityType					currentQuality;
@@ -70,7 +69,7 @@ private:
 	bool						bFormatMixEnabled;
 	
 	string ext; // file format
-	
+	ofImageFormat imgFormat;
 };
 
 
