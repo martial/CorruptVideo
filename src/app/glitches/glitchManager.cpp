@@ -118,7 +118,7 @@ void glitchManager::glitchThis(unsigned char * pixels, int width, int height, of
 	// open buffer and save image to memory
 	
 	ofBuffer  * buffer = new ofBuffer(); 
-	ofSaveImage(bufferImg->getPixelsRef(), *buffer, imgFormat, currentQuality);
+	ofSaveImage(bufferImg->getPixels(), *buffer, imgFormat, currentQuality);
 	
 	// send this data to glitch it into memory!
 	currentGlitch->glitch(buffer->getBinaryBuffer(), buffer->size());
@@ -129,7 +129,7 @@ void glitchManager::glitchThis(unsigned char * pixels, int width, int height, of
 	// glitch can be randomly corrupted, so we have to be careful on this 
 	
 	bHasLoaded = true;
-	if(!glitchImg->loadImage(*buffer)) {
+	if(!glitchImg->load(*buffer)) {
 		bHasLoaded = false;
 		
 	}
@@ -194,6 +194,6 @@ void glitchManager::setFileFormat(ofImageFormat format) {
 
 
 unsigned char * glitchManager::getPixels(){
-	return glitchImg->getPixels();
+	return glitchImg->getPixels().getData();
 }
 

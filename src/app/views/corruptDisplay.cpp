@@ -22,9 +22,9 @@
 
 void corruptDisplay::setup(){
 	
-	font.loadFont("fonts/Lekton-bold.ttf", 12, true, false, false);
-	bigFont.loadFont("fonts/Lekton-bold.ttf", 512, true, false, false);
-	sndPlayer.loadSound("mp3/bip.mp3", false);
+	font.load("fonts/Lekton-bold.ttf", 12, true, false, false);
+	bigFont.load("fonts/Lekton-bold.ttf", 512, true, false, false);
+	sndPlayer.load("mp3/bip.mp3", false);
 	
 	oldSec = 0;
 	
@@ -120,15 +120,15 @@ void corruptDisplay::showMessage (string message, int duration) {
 	this->message = message;
 	timerMessage.setup(duration, 1);
 	timerMessage.startTimer();
-	ofAddListener(timerMessage.TIMER_REACHED, this, &corruptDisplay::onTimerDoneHandler);
+	ofAddListener(timerMessage.timerReached, this, &corruptDisplay::onTimerDoneHandler);
 	bMessageVisible = true;
 	
 	
 }
 
-void corruptDisplay::onTimerDoneHandler(int & e) {
+void corruptDisplay::onTimerDoneHandler(ofEventArgs & e) {
 		
-	ofRemoveListener(timerMessage.TIMER_REACHED, this, &corruptDisplay::onTimerDoneHandler);
+	ofRemoveListener(timerMessage.timerReached, this, &corruptDisplay::onTimerDoneHandler);
 	bMessageVisible = false;
 }
 

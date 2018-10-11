@@ -23,13 +23,19 @@ void corruptVideoApp::setup(){
 	
 	faceTrack = NULL;
 		
-	video.setup();
+	video.setup(640, 480);
 	glitch.setup();
 	preRecordTimer.setup();
 	recordTimer.setup();
 	recorder.setup();
 	display.setup();
 	
+    /*
+	arduino.setup();
+	ofAddListener(arduino.button1Event, this, &corruptVideoApp::onButton1EventHandler);
+	ofAddListener(arduino.button2Event, this, &corruptVideoApp::onButton2EventHandler);
+	ofAddListener(arduino.knobEvent, this, &corruptVideoApp::onKnobEventHandler);
+     */
 	
 	soundManager.setup();
 	soundManager.setRangeLimit(1, 8);
@@ -49,11 +55,15 @@ void corruptVideoApp::setup(){
 	
 	display.showMessage("Welcome to youglitch.", 5000);
 	
-	ofAddListener(ofEvents.keyPressed, this, &corruptVideoApp::onKeyPressedEventHandler);
+	bWebcam = true;
+	
+	ofAddListener(ofEvents().keyPressed, this, &corruptVideoApp::onKeyPressedEventHandler);
 		
 }
 
 void corruptVideoApp::update(){
+	
+	//arduino.update();
 	
 	video.update();
 	gui.update();
@@ -75,6 +85,7 @@ void corruptVideoApp::update(){
 
 void corruptVideoApp::draw(){
 	
+
 	ofSetColor(255,255,255);
 	
 	
@@ -112,8 +123,12 @@ void corruptVideoApp::draw(){
 //========================================================================
 
 void corruptVideoApp::startRecord(){
+    
+    ofLogNotice("start  record..");
+
 	
 	// delete event by security
+    ofRemoveListener(preRecordTimer.timerDoneEvent, this, &corruptVideoApp::startRecord);
 	ofRemoveListener(preRecordTimer.timerDoneEvent, this, &corruptVideoApp::stopRecord);
 	
 	// we setup the recording stuff, mainly for the size
@@ -254,10 +269,12 @@ void corruptVideoApp::onGuiEventHandler ( string & name ) {
 	if ( name == "Record" ) {
 		
 		if(video.getVideoMode() == CORRUPT_VIDEOMODE_WEBCAM ) {
-		preRecordTimer.startTimer(preRecordDelay);		
-		// event to tell record we're ok to receive data
-		ofAddListener(preRecordTimer.timerDoneEvent, this, &corruptVideoApp::startRecord);
-			
+            ofLogNotice("start timer record..");
+
+            preRecordTimer.startTimer(preRecordDelay);
+            // event to tell record we're ok to receive data
+            ofAddListener(preRecordTimer.timerDoneEvent, this, &corruptVideoApp::startRecord);
+            
 		} else {
 			
 			startRecord();
@@ -349,6 +366,26 @@ void corruptVideoApp::audioIn(float * input, int bufferSize){
 void corruptVideoApp::checkForUpdate(){
 	
 }
+
+void corruptVideoApp::onButton1EventHandler(int & e) {
+	bWebcam = !bWebcam;
+	string mode;
+	if(bWebcam ) {
+		mode ="Webcam";
+	} else {
+		mode ="GIF Search";
+	}
+	onGuiEventHandler(mode);
+}
+void corruptVideoApp::onButton2EventHandler(int & e) {
+	string mode = "Record";
+	onGuiEventHandler(mode);
+	
+	
+};
+void corruptVideoApp::onKnobEventHandler(float & val) {
+	glitch.setIntensity(val*4);
+};
 
 
 void corruptVideoApp::exit(){

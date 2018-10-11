@@ -22,34 +22,26 @@
 
 string googleJson::request(string req) {
 		
-	bool parsingSuccessful = json.open("http://ajax.googleapis.com/ajax/services/search/images?v=1.0&as_filetype=gif&q=" + urlencode(req));
-	
-	
-	cout  << urlencode(req) + "\n" << endl;
-	
-	if ( !parsingSuccessful )
-    {
-		cout  << "Failed to parse JSON\n" << endl;
-		
-		
-	} else {
+    
+    ofHttpResponse resp = ofLoadURL("http://ajax.googleapis.com/ajax/services/search/images?v=1.0&as_filetype=gif&q=" + urlencode(req));
+    
+    
+    json = nlohmann::json::parse(resp.data);
+    
+    ofLogNotice("--") << resp.data;
 	
 	int numImages = json["responseData"]["results"].size();	
 	for(int i=0; i<numImages; i++) {
-		string url = json["responseData"]["results"][i]["url"].asString();
-		
+        string url = json["responseData"]["results"][i]["url"];
 	}
 		
 		
-		int index = floor(ofRandom(numImages));
-		string result = json["responseData"]["results"][index]["unescapedUrl"].asString();
-		ofBuffer buf = ofLoadURL(result).data;
-		ofBufferToFile("dl/dl_gif.gif", buf, true);
+    int index = floor(ofRandom(numImages));
+    string result = json["responseData"]["results"][index]["unescapedUrl"];
+    ofBuffer buf = ofLoadURL(result).data;
+    ofBufferToFile("dl/dl_gif.gif", buf, true);
 		
-		
-		
-	}
-
+    
 	// load file and save locally ?
 		
 	return "dl/dl_gif.gif";

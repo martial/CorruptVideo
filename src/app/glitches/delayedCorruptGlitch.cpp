@@ -21,7 +21,7 @@
 #include "delayedCorruptGlitch.h"
 
 delayedCorruptGlitch::delayedCorruptGlitch() {
-	abstractGlitch::abstractGlitch();
+	//abstractGlitch::abstractGlitch();
 	bReady = false;
 	nbOfReplacements = 0;
 }

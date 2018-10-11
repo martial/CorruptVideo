@@ -1,0 +1,24 @@
+YouGlitch Software Version 0.1
+
+Important Note
+
+Using this software, you are aware of the fact that some images captured will be uploaded to www.uglitch.com
+We assume that you're ok with this. If not, don't record the webcam.
+Be careful to NOT record personal information.
+
+Press 'F' for FullScreen
+Press 'G' to show/ hide menu
+Press 'S' to toggle webcam settings
+
+This software is still in version beta.
+It won't work with some webcams, and some videos could not be loaded correctly.
+Don't use HD videos - that will be slow and also may crash.
+Best results are for no more than 800x600 pixels.
+Please send any comment you like to bugz@uglitch.com. 
+
+
+Credits
+A project by Martial Geoffre-Rouland and Benjamin Gaulon, based on Corrupt a web based Glitch Art Software 
+allowing its user to upload and share corrupted images on www.corrupt.recyclism.com. 
+
+This project is made with the openFrameworks library. 

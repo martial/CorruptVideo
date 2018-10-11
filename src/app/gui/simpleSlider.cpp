@@ -20,7 +20,7 @@
 #include "simpleSlider.h"
 
 simpleSlider::simpleSlider() {
-	abstractComponent::abstractComponent();
+	//abstractComponent::abstractComponent();
 	value = NULL;
 }
 

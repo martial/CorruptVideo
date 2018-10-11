@@ -20,7 +20,7 @@
 #include "originalCorruptGlitch.h"
 
 originalCorruptGlitch::originalCorruptGlitch() {
-	abstractGlitch::abstractGlitch();
+	//abstractGlitch::abstractGlitch();
 }
 
 void originalCorruptGlitch::glitch(char * buffer, int filesize) {

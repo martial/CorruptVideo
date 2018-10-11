@@ -11,7 +11,6 @@
 #define GGLEJSON
 
 #include "ofMain.h"
-#include "ofxJSONElement.h"
 
 class googleJson {
 
@@ -26,7 +25,7 @@ private:
 
 	
 	string  char2hex( char dec );
-	ofxJSONElement json;
+    ofJson json;
 
 };
 #endif

@@ -20,7 +20,6 @@
 #pragma once
 
 #include "ofMain.h"
-#include "ofxFileDialog.h"
 
 
 enum corruptVideoMode {
@@ -82,7 +81,8 @@ private:
 	ofVideoPlayer	*	videoPlayer;
 	ofVideoGrabber		videoGrabber;
 	
-	unsigned char *		pixels;
+	//unsigned char *		pixels;
+    ofPixels            pixels;
 	
 	ofDirectory			dir;
 	string				videoDirectory;

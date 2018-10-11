@@ -21,7 +21,7 @@
 #include "simpleButton.h"
 
 simpleButton::simpleButton() {
-	abstractComponent::abstractComponent();
+	//abstractComponent::abstractComponent();
 }
 
 void simpleButton::setup(string label, float height, ofTrueTypeFont * font){

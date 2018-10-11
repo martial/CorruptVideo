@@ -23,7 +23,6 @@ class simpleGui {
 	
 public:
 	
-	simpleGui();
 	void setup(videoManager * video, glitchManager * glitch);
 	void setButtons();
 	void update();
@@ -31,20 +30,21 @@ public:
 	
 	void changeSet(int id);
 	
-	
 	// mouse 
-	
-	void mouseMoved();
-	void mouseMoved(ofMouseEventArgs &e );
-    void mouseDragged(ofMouseEventArgs &e);
-    void mousePressed(ofMouseEventArgs &e);
-    void mouseReleased(ofMouseEventArgs &e);	
+    bool mouseMoved();
+
+    bool mouseMoved(ofMouseEventArgs & args);
+    bool mousePressed(ofMouseEventArgs & args);
+    bool mouseDragged(ofMouseEventArgs & args);
+    bool mouseReleased(ofMouseEventArgs & args);
+    bool mouseScrolled(ofMouseEventArgs & ){};
+    bool mouseEntered(ofMouseEventArgs & ){};
+    bool mouseExited(ofMouseEventArgs & ){};
+   
 	
 	void enable();
 	void disable();
-	
-	
-	
+		
 	void onButtonClick(string & name );
 	void onSliderUpdate(float & pct);
 	ofEvent<string>   guiEvent;
@@ -52,7 +52,7 @@ public:
 	bool bEnabled;
 	
 	simpleSlider						* videoSlider;
-	multLabelButton					* animtypeSelectBtn;
+	multLabelButton					    * animtypeSelectBtn;
 	
 private:
 	

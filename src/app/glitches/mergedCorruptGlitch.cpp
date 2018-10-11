@@ -21,7 +21,7 @@
 #include "mergedCorruptGlitch.h"
 
 mergedCorruptGlitch::mergedCorruptGlitch() {
-	abstractGlitch::abstractGlitch();
+	//abstractGlitch::abstractGlitch();
 }
 
 void mergedCorruptGlitch::glitch(char * buffer, int filesize) {

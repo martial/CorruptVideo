@@ -11,7 +11,7 @@
 #define RCRDMNGR
 
 #include "ofMain.h"
-#include "ofxQtVideoSaver.h"
+#include "ofxVideoRecorder.h"
 #include "ofxGifEncoder.h"
 
 
@@ -46,7 +46,9 @@ private:
 	
 	void onGifSavedHandler(string &fileName) ;
 	
-	ofxQtVideoSaver *  videoSaver;
+	//ofxQtVideoSaver *  videoSaver;
+    //ofVideoGrabber 			vidGrabber;
+    ofxVideoRecorder     * videoSaver;
 	ofxGifEncoder		gifSaver;
 	
 	string recordDir, videoDir, gifDir;

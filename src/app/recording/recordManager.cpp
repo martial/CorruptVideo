@@ -44,6 +44,12 @@ void recordManager::setup(string recordDir) {
 	bProcessingGif = false;
 	
 	ofAddListener(ofxGifEncoder::OFX_GIF_SAVE_FINISHED, this, &recordManager::onGifSavedHandler);
+    
+   // vidGrabber.setGrabber(videoSaver);
+    
+    //videoSaver->initRecording();
+    
+
 	
 }
 
@@ -74,12 +80,19 @@ void recordManager::setupRecording(int width, int height) {
 	
 	// go for new instance of video saver
 	// buggy if we don't 
-	videoSaver = new ofxQtVideoSaver();
-	videoSaver->setCodecQualityLevel(OF_QT_SAVER_CODEC_QUALITY_NORMAL);
+	videoSaver = new ofxVideoRecorder();
+    
+    videoSaver->setVideoCodec("mpeg4");
+    videoSaver->setVideoBitrate("800k");
+    videoSaver->setAudioCodec("mp3");
+    videoSaver->setAudioBitrate("192k");
+    
+    videoSaver->setup(recordDir + "/" + videoDir +"/" + currentVideoName + ".tmp", width, height, 30, 44100, 3);
+    videoSaver->start();
+
 	
 	currentVideoName = getNextAvailableName(videoDir);
 	
-	videoSaver->setup(width, height, recordDir + "/" + videoDir +"/" + currentVideoName + ".tmp");
 	
 	// setup gifSaver
 	gifSaver.setup(width, height, .15, 32);
@@ -88,7 +101,7 @@ void recordManager::setupRecording(int width, int height) {
 }
 void recordManager::stopRecord(){
 	
-	videoSaver->finishMovie();
+	videoSaver->close();
 	
 	// rename movie to .mov to prevent user closing app when recording
 	
@@ -118,8 +131,13 @@ void recordManager::addFrames(unsigned char * pixels, float fps){
 	
 	if(!bRecordAllowed) return;
 	
-	if(videoSaver->bAmSetupForRecording() ) 
-		videoSaver->addFrame(pixels, 1.0f / 24.0f);
+    ofPixels p;
+    p.setFromExternalPixels(pixels, currW, currH,  3);
+    
+	if(videoSaver->isInitialized() )
+        bool success = videoSaver->addFrame(p);
+
+		//videoSaver->addFrame(pixels, 1.0f / 24.0f);
 	
 	if ( ofGetFrameNum() % gifFrameDelay == 0 ) 
 		gifSaver.addFrame(pixels, currW, currH, 24);

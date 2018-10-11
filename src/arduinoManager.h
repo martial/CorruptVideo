@@ -26,10 +26,11 @@ public:
 	bool		bSetupArduino;	
 		
 	
-	ofEvent<int> buttonEvent;
+	ofEvent<int> button1Event;
+	ofEvent<int> button2Event;
 	ofEvent<float> knobEvent;
-	bool bButtonSent;
-	int oldKnobValue;
+	bool bButtonRecordSent, bBoutonImageSearchSent;
+	int oldKnobValue, oldToggleVal;
 };
 
 #endif

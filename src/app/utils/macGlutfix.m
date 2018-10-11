@@ -7,6 +7,11 @@
 #include <AppKit/NSOpenGL.h>
 #include "macGlutfix.h"
 
+#include <stdlib.h>
+#include <stdio.h>
+#include <sys/types.h>
+#include <sys/sysctl.h>
+
 // The standard ScreenSaverView class actually sets the window
 // level to 2002, not the 1000 defined by NSScreenSaverWindowLevel
 // and kCGScreenSaverWindowLevel
@@ -16,6 +21,8 @@
 
 // Delay when switching to screensaver mode to reduce annoying flashes
 #define SAVERDELAY 30
+
+
 
 void MacGLUTFix(bool isScreenSaver) {
     static NSMenu * emptyMenu;
@@ -92,6 +99,8 @@ unsigned char * pixelsBelowWindow(int x, int y, int w, int h)
 	
 	
     CGWindowID windowID = [window windowNumber];
+    
+
     
     // Get window's rect in flipped screen coordinates
     CGRect windowRect = NSRectToCGRect( [window frame] );

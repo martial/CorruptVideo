@@ -19,10 +19,8 @@
 
 
 #include "videoManager.h"
-
-extern "C" {
 #include "macGlutfix.h"
-}
+
 
 
 videoManager::videoManager () {
@@ -37,7 +35,7 @@ void videoManager::setup(int webcamW, int webcamH){
 	// init webcam and set defaultmode
 	videoGrabber.initGrabber(webcamW, webcamH);
 	setVideoMode(CORRUPT_VIDEOMODE_WEBCAM);
-	ofAddListener(ofEvents.windowResized, this, &videoManager::windowResized);
+    ofAddListener(ofEvents().windowResized, this, &videoManager::windowResized);
 	
 }
 void videoManager::update(){
@@ -49,11 +47,13 @@ void videoManager::update(){
 		case CORRUPT_VIDEOMODE_WEBCAM:
 			
 			
-			
-			videoGrabber.grabFrame();
+            //ofLogNotice("we're in webcam");
+            
+            videoGrabber.update();
 			
 			if ( videoGrabber.isFrameNew() ) {
-				
+              //
+
 				pixels = videoGrabber.getPixels();
 				bHasPixels = true;
 				
@@ -80,7 +80,10 @@ void videoManager::update(){
 		case CORRUPT_VIDEOMODE_DESKTOP:
 			
 			// thanks to zachary for this!!
-			pixels = pixelsBelowWindow(ofGetWindowPositionX(),ofGetWindowPositionY(),ofGetWidth(), ofGetHeight());
+            unsigned char * p = pixelsBelowWindow(ofGetWindowPositionX(),ofGetWindowPositionY(),ofGetWidth(), ofGetHeight());
+            pixels.setFromExternalPixels(p, ofGetWidth(), ofGetHeight(), 3);
+            
+			//pixels.setFromExternalPixels(pixelsBelowWindow(ofGetWindowPositionX(),ofGetWindowPositionY(),ofGetWidth(), ofGetHeight()), 3);
 			
 			for (int i = 0; i < ofGetWidth()*ofGetHeight(); i++){  
 				
@@ -137,7 +140,7 @@ void videoManager::draw(int x, int y, float width, float height){
 
 unsigned char * videoManager::getPixels(){
 	
-	return pixels;
+	return pixels.getData();
 	
 }
 
@@ -158,8 +161,8 @@ void videoManager::setVideoMode(corruptVideoMode mode){
 			
 		case CORRUPT_VIDEOMODE_WEBCAM:
 			
-			width = videoGrabber.width;
-			height = videoGrabber.height;
+			width = videoGrabber.getWidth();
+			height = videoGrabber.getHeight();
 			colorMode = OF_IMAGE_COLOR;
 			break;
 			
@@ -195,21 +198,24 @@ int videoManager::getVideoMode() {
 
 bool videoManager::loadMovie() {
 	
-	ofxFileDialog dialog;
-	
-	string filePath = dialog.getStringFromDialog(kDialogFile, "Choose File to Open", NULL);
 	
 	
-	if(filePath.empty()) {
-		
-		ofLog(OF_LOG_NOTICE, "No file chosen - skip");
-		return false;
-		
-	}
+    ofFileDialogResult openFileResult= ofSystemLoadDialog("Choose File to Open");
+    
+    if (openFileResult.bSuccess){
+        
+        loadMovie(openFileResult.getPath());
+        return true;
+        
+    }else {
+        ofLog(OF_LOG_NOTICE, "No file chosen - skip");
+        return false;
+    }
+    
+    
+
 	
-	loadMovie(filePath);
 	
-	return true;
 	
 }
 
@@ -219,10 +225,10 @@ bool videoManager::loadMovie(string path) {
 	clear();
 	
 	videoPlayer = new ofVideoPlayer();
-	videoPlayer->loadMovie(path);
+	videoPlayer->load(path);
 	
-	width = videoPlayer->width;
-	height = videoPlayer->height;
+	width = videoPlayer->getWidth();
+	height = videoPlayer->getHeight();
 	
 	
 	

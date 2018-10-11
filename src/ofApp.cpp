@@ -1,7 +1,7 @@
-#include "testApp.h"
+#include "ofApp.h"
 
 //--------------------------------------------------------------
-void testApp::setup(){
+void ofApp::setup(){
 	
 	ofSetLogLevel(OF_LOG_NOTICE);
 	ofSetFrameRate(24);
@@ -9,20 +9,21 @@ void testApp::setup(){
 	
 	app = new corruptVideoApp();
 	app->setup();
-	
-	
-	ofSoundStreamSetup(0,2,this, 44100, 128, 4);	
+	ofSoundStreamSetup(0,2,this, 44100, 128, 4);
 }
 
 //--------------------------------------------------------------
-void testApp::update(){
+void ofApp::update(){
+    
 	if(updateChecker.state == "OK") app->update();
+
 }
 
 //--------------------------------------------------------------
-void testApp::draw(){
+void ofApp::draw(){
 	
 	ofBackground(0, 0, 0);
+        
 	if(updateChecker.state == "OK") {
 		
 		app->draw();
@@ -37,30 +38,30 @@ void testApp::draw(){
 
 
 //--------------------------------------------------------------
-void testApp::audioIn(float * input, int bufferSize, int nChannels){	
+void ofApp::audioIn(float * input, int bufferSize, int nChannels){
 	app->audioIn(input, bufferSize);
 }
 
 //--------------------------------------------------------------
-void testApp::keyPressed(int key){
+void ofApp::keyPressed(int key){
 	
 	switch ( key ) {
 	
-	case 32:
-	updateChecker.spacePressed();
-	break;
+        case 32:
+        updateChecker.spacePressed();
+        break;
 			
 	}
 }
 
 
 //--------------------------------------------------------------
-void testApp::windowResized(int w, int h){
+void ofApp::windowResized(int w, int h){
 
 }
 
 //--------------------------------------------------------------
-void testApp::gotMessage(ofMessage msg){
+void ofApp::gotMessage(ofMessage msg){
 
 }
 

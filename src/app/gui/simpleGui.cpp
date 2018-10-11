@@ -20,9 +20,7 @@
 
 #include "simpleGui.h"
 
-simpleGui::simpleGui () {
-	
-}
+
 
 
 void simpleGui::setup (videoManager * video, glitchManager * glitch) {
@@ -30,11 +28,11 @@ void simpleGui::setup (videoManager * video, glitchManager * glitch) {
 	this->video = video;
 	this->glitch = glitch;
 	
-	font.loadFont("fonts/Arial.ttf", 9, false, false, false);
+	font.load("fonts/Arial.ttf", 9, false, false, false);
 	
-	logo.loadImage("images/logo.png");
+	logo.load("images/logo.png");
 	
-	height = logo.height;
+	height = logo.getHeight();
 	diffHeight = 0.0;
 	xPadding = 1.0;
 	
@@ -88,7 +86,7 @@ void simpleGui::setButtons() {
 	permanentBtns.push_back(webcamBtn);
 	permanentBtns.push_back(loadMovieBtn);
 	permanentBtns.push_back(desktopMovie);
-	permanentBtns.push_back(imgSearch);
+	//permanentBtns.push_back(imgSearch);
 	//permanentBtns.push_back(galleryBtn);
 	permanentBtns.push_back(infoBtn);
 	permanentBtns.push_back(intensitySlider);
@@ -105,10 +103,11 @@ void simpleGui::setButtons() {
 	webcamSet->push_back(recordBtn);
 	ofAddListener(recordBtn->eventClick, this, &simpleGui::onButtonClick );
 	
+    
 	simpleButton * fftModeBtn = new simpleButton();
 	fftModeBtn->setup("FFT Mode", height, &font);
 	fftModeBtn->bTemporary = false;
-	webcamSet->push_back(fftModeBtn);
+	//webcamSet->push_back(fftModeBtn);
 	ofAddListener(fftModeBtn->eventClick, this, &simpleGui::onButtonClick );
 	
 	
@@ -137,7 +136,7 @@ void simpleGui::setButtons() {
 	animtypeSelectBtn->addStringValue("TIFF");
 	//animtypeSelectBtn->addStringValue("PNG");
 	//animtypeSelectBtn->addStringValue("GIF");
-	animtypeSelectBtn->addStringValue("RDM");
+	//animtypeSelectBtn->addStringValue("RDM");
 	
 	webcamSet->push_back(animtypeSelectBtn);
 	ofAddListener(animtypeSelectBtn->eventClick, this, &simpleGui::onButtonClick );
@@ -169,14 +168,14 @@ void simpleGui::changeSet(int id) {
 	
 }
 
-void simpleGui::mouseMoved() {
+bool simpleGui::mouseMoved() {
 	ofMouseEventArgs e;
 	e.x = ofGetMouseX();
 	e.y = ofGetMouseY();
 	mouseMoved(e);
 }
 
-void simpleGui::mouseMoved(ofMouseEventArgs &e ) {
+bool simpleGui::mouseMoved(ofMouseEventArgs &e ) {
 	int i;
 	for ( i=0; i<permanentBtns.size(); i++) {
 		permanentBtns[i]->mouseMoved(e.x, e.y);
@@ -188,7 +187,7 @@ void simpleGui::mouseMoved(ofMouseEventArgs &e ) {
 	}
 }
 
-void simpleGui::mousePressed(ofMouseEventArgs &e ) {
+bool simpleGui::mousePressed(ofMouseEventArgs &e ) {
 	int i;
 	for ( i=0; i<permanentBtns.size(); i++) {
 		permanentBtns[i]->mousePressed(e.x, e.y);
@@ -201,7 +200,7 @@ void simpleGui::mousePressed(ofMouseEventArgs &e ) {
 	
 }
 
-void simpleGui::mouseReleased(ofMouseEventArgs &e ) {
+bool simpleGui::mouseReleased(ofMouseEventArgs &e ) {
 	int i;
 	for ( i=0; i<permanentBtns.size(); i++) {
 		permanentBtns[i]->mouseReleased();
@@ -214,7 +213,7 @@ void simpleGui::mouseReleased(ofMouseEventArgs &e ) {
 	
 }
 
-void simpleGui::mouseDragged(ofMouseEventArgs &e ) {
+bool simpleGui::mouseDragged(ofMouseEventArgs &e ) {
 	int i;
 	for ( i=0; i<permanentBtns.size(); i++) {
 		permanentBtns[i]->mouseDragged(e.x, e.y, e.button);
@@ -281,7 +280,7 @@ void simpleGui::draw () {
 		
 		vector<abstractComponent*> * set = sets[currentSetID];
 		
-		xPos = logo.width + xPadding;
+		xPos = logo.getWidth() + xPadding;
 		for ( i=0; i<set->size(); i++) {
 			
 			if(set->at(i)->bEnabled == false) continue;

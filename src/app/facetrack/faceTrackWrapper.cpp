@@ -35,7 +35,10 @@ void faceTrackWrapper::setup() {
 
 void faceTrackWrapper::findFaces(unsigned char * pixels, int width, int height) {
 	
-	haarFinder.findHaarObjects(pixels, width, height,12,12);
+    ofPixels p;
+    p.setFromExternalPixels(pixels, width, height, 3);
+    
+	haarFinder.findHaarObjects(p, 12,12);
 	
 	int numOfBlobs = haarFinder.blobs.size();
 	

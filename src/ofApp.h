@@ -4,7 +4,7 @@
 #include "corruptVideoApp.h"
 #include "updateCheck.h"
 
-class testApp : public ofBaseApp{
+class ofApp : public ofBaseApp{
 
 	public:
 		void setup();

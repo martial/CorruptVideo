@@ -21,7 +21,7 @@
 #include "multLabelButton.h"
 
 multLabelButton::multLabelButton () {
-	simpleButton::simpleButton();
+	//simpleButton::simpleButton();
 }
 
 void multLabelButton::setup(string name, float height, ofTrueTypeFont * font) {

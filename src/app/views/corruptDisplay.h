@@ -36,7 +36,7 @@ public:
 	
 private :
 	
-	void onTimerDoneHandler(int & e);
+	void onTimerDoneHandler(ofEventArgs & e);
 	
 	ofTrueTypeFont	font,bigFont;
 	ofSoundPlayer	sndPlayer;

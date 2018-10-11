@@ -15,6 +15,10 @@ void arduinoManager::setup () {
 	
 	bSetupArduino	= false;
 	oldKnobValue = -1;
+	
+	bButtonRecordSent = false;
+	bBoutonImageSearchSent = false;
+	oldToggleVal = 0;
 }
 
 void arduinoManager::update () {
@@ -31,7 +35,8 @@ void arduinoManager::setupArduino(const int & version) {
 	}
 	
 	ard.sendAnalogPinReporting(0, ARD_ANALOG);	// AB: report data
-	ard.sendDigitalPinMode(11, ARD_INPUT);		// on diecimelia: 11 pwm?*/
+	ard.sendDigitalPinMode(2, ARD_INPUT);		// on diecimelia: 11 pwm?*/
+	ard.sendDigitalPinMode(4, ARD_INPUT);
 	bSetupArduino = true;
 	
 }
@@ -39,13 +44,21 @@ void arduinoManager::setupArduino(const int & version) {
 void arduinoManager::updateArduino () {
 	ard.update();
 	
-	int buttonValue = ard.getDigital(11);
+	int toggleVal = ard.getDigital(2);
+	
+	if(toggleVal != oldToggleVal ) {
+		int a = 0;
+		ofNotifyEvent(button1Event, a, this);
+	} 
+	oldToggleVal = toggleVal;
+	
+	int buttonValue = ard.getDigital(4);
 	
 	if(buttonValue == 1 ) {
-		if(!bButtonSent) ofNotifyEvent(buttonEvent, buttonValue, this);
-		bButtonSent = true;
+		if(!bBoutonImageSearchSent) ofNotifyEvent(button2Event, buttonValue, this);
+		bBoutonImageSearchSent = true;
 	} else {
-		bButtonSent = false;
+		bBoutonImageSearchSent = false;
 	}
 	
 	int knobValue = ard.getAnalog(0);

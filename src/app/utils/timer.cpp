@@ -27,7 +27,7 @@ void timer::setup() {
 	
 	setTimerDelay(3000);
 	
-	ofAddListener(timer.TIMER_REACHED, this, &timer::onTimerDoneHandler);
+	ofAddListener(timer.timerReached, this, &timer::onTimerDoneHandler);
 	
 }
 
@@ -75,12 +75,9 @@ bool timer::isActive() {
 	return bActive;
 }
 
-void timer::onTimerDoneHandler(int & e) {
+void timer::onTimerDoneHandler(ofEventArgs & e) {
 	
-	
-	
-	ofLog(OF_LOG_NOTICE, "DONE! %d", getSecRemaining());
-	
+		ofLog(OF_LOG_NOTICE, "DONE! %d", getSecRemaining());
 	
 	int dumm = 0;
 	ofNotifyEvent(timerDoneEvent, dumm, this);

@@ -18,8 +18,8 @@ textInput::textInput() {
 }
 
 void textInput::init() {
-	ofAddListener(ofEvents.keyPressed, this, &textInput::keyPressedEvent);
-	font.loadFont("fonts/Lekton-bold.ttf", 12, true, false, false);
+	ofAddListener(ofEvents().keyPressed, this, &textInput::keyPressedEvent);
+	font.load("fonts/Lekton-bold.ttf", 12, true, false, false);
 }
 
 void textInput::draw()  {

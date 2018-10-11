@@ -31,7 +31,7 @@
 #include "ofxSoundManager.h"
 #include "faceTrackWrapper.h"
 #include "googleJson.h"
-
+#include "arduinoManager.h"
 
 class corruptVideoApp {
 	
@@ -77,6 +77,7 @@ private:
 	googleJson		ggleJson;
 	
 	faceTrackWrapper * faceTrack;
+	arduinoManager arduino;
 	
 	void onGuiEventHandler ( string & name ); 
 	void onGifCreatedHandler( string & filename);
@@ -92,7 +93,11 @@ private:
 	int		recordDuration, preRecordDelay;
 	
 	
-
+	
+	void onButton1EventHandler(int & e);
+	void onButton2EventHandler(int & e);
+	void onKnobEventHandler(float & val);
+	bool bWebcam;
 	
 };
 

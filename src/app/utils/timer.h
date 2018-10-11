@@ -29,7 +29,7 @@ public:
 	int getSecRemaining();
 	bool isActive();
 	
-	void onTimerDoneHandler(int & e);
+	void onTimerDoneHandler(ofEventArgs & e);
 	
 	ofEvent<int> timerDoneEvent;
 	
