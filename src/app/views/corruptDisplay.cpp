@@ -24,7 +24,10 @@ void corruptDisplay::setup(){
 	
 	font.load("fonts/Lekton-bold.ttf", 12, true, false, false);
 	bigFont.load("fonts/Lekton-bold.ttf", 512, true, false, false);
+    
+#ifndef __linux__
 	sndPlayer.load("mp3/bip.mp3", false);
+#endif
 	
 	oldSec = 0;
 	
@@ -82,7 +85,9 @@ void corruptDisplay::drawPreRecordSec(int secs) {
 	if ( oldSec != secs ) {
 		
 		ofSetColor(255, 0, 0);
+#ifndef __linux__
 		sndPlayer.play();
+#endif
 		
 	} else {
 		ofSetColor(255,255,255);
@@ -100,7 +105,7 @@ void corruptDisplay::drawRecordingSec(int secs) {
 	
 	if(ofGetFrameNum() % 16 > 8 ) { 
 		ofSetColor(255, 0, 0);
-		ofCircle(20, 16, 6);	
+		ofDrawCircle(20, 16, 6);
 	}
 	
 }
@@ -109,7 +114,7 @@ void corruptDisplay::drawTopLineString(string str) {
 	
 	ofEnableAlphaBlending();
 	ofSetColor(0, 0, 0, 125);
-	ofRect(0,0, ofGetWidth(), 35);
+	ofDrawRectangle(0,0, ofGetWidth(), 35);
 	ofDisableAlphaBlending();
 	
 	ofSetColor(255);
@@ -136,7 +141,7 @@ void corruptDisplay::showInfo () {
 		
 	ofEnableAlphaBlending();
 	ofSetColor(0, 0, 0, 125);
-	ofRect(0,0,ofGetWidth(), ofGetHeight());
+	ofDrawRectangle(0,0,ofGetWidth(), ofGetHeight());
 	
 	ofSetColor(255);
 	font.drawString(infoStr, 25,25);
@@ -157,7 +162,7 @@ void corruptDisplay::showInputBox () {
 	ofTranslate((int)(ofGetWidth() * .5), (int)(ofGetHeight()*.5), 0);
 	ofEnableAlphaBlending();
 	ofSetColor(0, 0, 0, 75);
-	ofRect(-204,(int) (- 15) , 408 , 25);
+	ofDrawRectangle(-204,(int) (- 15) , 408 , 25);
 	ofDisableAlphaBlending();
 	
 	//ofTranslate(ofGetWidth() * .5, ofGetHeight()*.5, 0);
@@ -173,7 +178,7 @@ void corruptDisplay::showInputBox () {
 	
 	ofEnableAlphaBlending();
 	ofSetColor(0, 0, 0, 75);
-	ofRect(-84, -47 , 168 , 25);
+	ofDrawRectangle(-84, -47 , 168 , 25);
 	ofDisableAlphaBlending();
 	ofSetColor(255);
 	string req = "TYPE YOUR REQUEST : ";
