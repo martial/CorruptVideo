@@ -37,9 +37,9 @@ public:
     bool mousePressed(ofMouseEventArgs & args);
     bool mouseDragged(ofMouseEventArgs & args);
     bool mouseReleased(ofMouseEventArgs & args);
-    bool mouseScrolled(ofMouseEventArgs & ){};
-    bool mouseEntered(ofMouseEventArgs & ){};
-    bool mouseExited(ofMouseEventArgs & ){};
+    bool mouseScrolled(ofMouseEventArgs & ){return false;};
+    bool mouseEntered(ofMouseEventArgs & ){return false;};
+    bool mouseExited(ofMouseEventArgs & ){return false;};
    
 	
 	void enable();

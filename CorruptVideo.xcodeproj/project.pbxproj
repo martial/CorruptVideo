@@ -48,7 +48,7 @@
 		E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */; };
 		ECD73C3238004617BCEF33C2 /* delayedCorruptGlitch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4F4A9AE8A241AD7025863C8 /* delayedCorruptGlitch.cpp */; };
 		EFB0FC7172A396771F0CC1E2 /* ofxEQ.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA1D2AA74C407F94BB7467D2 /* ofxEQ.cpp */; };
-		F1E001D128813A1B012A78B6 /* timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A365FA3380338E8DEAF02106 /* timer.cpp */; };
+		F1E001D128813A1B012A78B6 /* CustomTimer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A365FA3380338E8DEAF02106 /* CustomTimer.cpp */; };
 		FB09C6B2A1DA0EA217240CB8 /* ofxCvGrayscaleImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 057122A817D12571F8C0C7A4 /* ofxCvGrayscaleImage.cpp */; };
 		FC01BDB900D555E414012672 /* simpleButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C7B19D7D1CE1B32296962B98 /* simpleButton.cpp */; };
 		FC22CCBEE46563B6C60A4146 /* corruptVideoApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1853B77846BDB07B160FC5BA /* corruptVideoApp.cpp */; };
@@ -221,7 +221,7 @@
 		6198BD054F1EBF3D5BD23254 /* textBoxView.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = textBoxView.cpp; path = src/app/views/textBoxView.cpp; sourceTree = SOURCE_ROOT; };
 		61A673E0354F5DD23699802A /* ebcdic.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ebcdic.h; path = ../../../addons/ofxPoco/libs/openssl/include/openssl/ebcdic.h; sourceTree = SOURCE_ROOT; };
 		61CC1A2E0CC17BE6CE4A68F7 /* conf.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = conf.h; path = ../../../addons/ofxPoco/libs/openssl/include/openssl/conf.h; sourceTree = SOURCE_ROOT; };
-		64179592814D32591FB375CB /* timer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = timer.h; path = src/app/utils/timer.h; sourceTree = SOURCE_ROOT; };
+		64179592814D32591FB375CB /* CustomTimer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = CustomTimer.h; path = src/app/utils/CustomTimer.h; sourceTree = SOURCE_ROOT; };
 		64D45D3FC56C30943AC64D5E /* aes.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = aes.h; path = ../../../addons/ofxPoco/libs/openssl/include/openssl/aes.h; sourceTree = SOURCE_ROOT; };
 		66EA895B37DCE5C380F747F2 /* pqueue.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = pqueue.h; path = ../../../addons/ofxPoco/libs/openssl/include/openssl/pqueue.h; sourceTree = SOURCE_ROOT; };
 		676F777537535D01BD0CF2E6 /* intrin_cpp.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = intrin_cpp.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/core/hal/intrin_cpp.hpp; sourceTree = SOURCE_ROOT; };
@@ -310,7 +310,7 @@
 		A23294BD900A77E58A71F621 /* cvstd.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = cvstd.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/core/cvstd.hpp; sourceTree = SOURCE_ROOT; };
 		A2EE5E80B134EA52A8B369D2 /* eigen.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = eigen.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/core/eigen.hpp; sourceTree = SOURCE_ROOT; };
 		A3411731962D0402217F182B /* fast_marching.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fast_marching.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/videostab/fast_marching.hpp; sourceTree = SOURCE_ROOT; };
-		A365FA3380338E8DEAF02106 /* timer.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = timer.cpp; path = src/app/utils/timer.cpp; sourceTree = SOURCE_ROOT; };
+		A365FA3380338E8DEAF02106 /* CustomTimer.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = CustomTimer.cpp; path = src/app/utils/CustomTimer.cpp; sourceTree = SOURCE_ROOT; };
 		A4E5F31122D08FFF978C700B /* stitching.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = stitching.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/stitching.hpp; sourceTree = SOURCE_ROOT; };
 		A4F4A9AE8A241AD7025863C8 /* delayedCorruptGlitch.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = delayedCorruptGlitch.cpp; path = src/app/glitches/delayedCorruptGlitch.cpp; sourceTree = SOURCE_ROOT; };
 		A635ED74FA38F1EFA4AD206C /* err.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = err.h; path = ../../../addons/ofxPoco/libs/openssl/include/openssl/err.h; sourceTree = SOURCE_ROOT; };
@@ -854,8 +854,8 @@
 				503041B6B19B4F715D4B7669 /* macGlutfix.h */,
 				8A0EC1242ECB12C84B77E957 /* ofxImgSizeUtils.h */,
 				DD128733B67C49465A9602D2 /* ofxImgSizeUtils.cpp */,
-				A365FA3380338E8DEAF02106 /* timer.cpp */,
-				64179592814D32591FB375CB /* timer.h */,
+				A365FA3380338E8DEAF02106 /* CustomTimer.cpp */,
+				64179592814D32591FB375CB /* CustomTimer.h */,
 				7FBD1BC88342749C7FBF9ADE /* macGlutfix.m */,
 			);
 			name = utils;
@@ -1430,7 +1430,7 @@
 				D33104677E658F5C8A591779 /* recordManager.cpp in Sources */,
 				DF8F0D44069E8CF5113B537E /* faceTrackWrapper.cpp in Sources */,
 				07558048FFF1BBD982589609 /* ofxImgSizeUtils.cpp in Sources */,
-				F1E001D128813A1B012A78B6 /* timer.cpp in Sources */,
+				F1E001D128813A1B012A78B6 /* CustomTimer.cpp in Sources */,
 				534E1CADE7D0957DA6BF6E12 /* macGlutfix.m in Sources */,
 				D8B87F2B36E242771F2785C4 /* multLabelButton.cpp in Sources */,
 				ABE13DBCA851251A975F21F6 /* abstractComponent.cpp in Sources */,

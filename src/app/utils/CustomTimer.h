@@ -14,7 +14,7 @@
 #include "ofxTimer.h"
 
 
-class timer {
+class CustomTimer {
 	
 public:
 	

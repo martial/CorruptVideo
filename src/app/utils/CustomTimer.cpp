@@ -18,34 +18,33 @@
  */
 
 
-#include "timer.h"
+#include "CustomTimer.h"
 
-void timer::setup() {
+void CustomTimer::setup() {
 	
 	bActive = false;
 	currentMsElapsed = 0;
 	
 	setTimerDelay(3000);
 	
-	ofAddListener(timer.timerReached, this, &timer::onTimerDoneHandler);
+	ofAddListener(timer.timerReached, this, &CustomTimer::onTimerDoneHandler);
 	
 }
 
-void timer::setTimerDelay(int delay) {
+void CustomTimer::setTimerDelay(int delay) {
 	
 	this->delay = delay;
 	
 }
 
-void timer::startTimer (int delay){
+void CustomTimer::startTimer (int delay){
 	
 	setTimerDelay(delay);
 	startTimer();
 }
 
-void timer::startTimer() {
+void CustomTimer::startTimer() {
 	
-	ofLog(OF_LOG_NOTICE, "START TIMER DONE");
 	stopTimer();
 	timer.setup(delay, 1);
 	timer.startTimer();
@@ -54,7 +53,7 @@ void timer::startTimer() {
 	bActive = true;
 }
 
-void timer::stopTimer(){
+void CustomTimer::stopTimer(){
 	
 	timer.stopTimer();
 	timer.reset();
@@ -62,7 +61,7 @@ void timer::stopTimer(){
 	bActive = false;
 }
 
-int timer::getSecRemaining(){
+int CustomTimer::getSecRemaining(){
 	
 	if(currentMsElapsed == 0) return 0;
 	
@@ -71,14 +70,12 @@ int timer::getSecRemaining(){
 	return int(floor(diff / 1000));
 	
 }
-bool timer::isActive() {
+bool CustomTimer::isActive() {
 	return bActive;
 }
 
-void timer::onTimerDoneHandler(ofEventArgs & e) {
-	
-		ofLog(OF_LOG_NOTICE, "DONE! %d", getSecRemaining());
-	
+void CustomTimer::onTimerDoneHandler(ofEventArgs & e) {
+		
 	int dumm = 0;
 	ofNotifyEvent(timerDoneEvent, dumm, this);
 }

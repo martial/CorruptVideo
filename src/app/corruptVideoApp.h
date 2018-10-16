@@ -24,7 +24,7 @@
 #include "videoManager.h"
 #include "simpleGui.h"
 #include "glitchManager.h"
-#include "timer.h"
+#include "CustomTimer.h"
 #include "recordManager.h"
 #include "gifWebUploader.h"
 #include "corruptDisplay.h"
@@ -70,7 +70,7 @@ private:
 	videoManager	video;
 	glitchManager	glitch;
 	recordManager	recorder;
-	timer			preRecordTimer, recordTimer;
+	CustomTimer			preRecordTimer, recordTimer;
 	gifWebUploader	gifUpload;
 	corruptDisplay	display;
 	ofxSoundManager	soundManager;
