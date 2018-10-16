@@ -19,7 +19,10 @@
 
 
 #include "videoManager.h"
+
+#ifndef __linux__
 #include "macGlutfix.h"
+#endif
 
 
 
@@ -79,6 +82,8 @@ void videoManager::update(){
 			
 		case CORRUPT_VIDEOMODE_DESKTOP:
 			
+#ifndef __linux__
+
 			// thanks to zachary for this!!
             unsigned char * p = pixelsBelowWindow(ofGetWindowPositionX(),ofGetWindowPositionY(),ofGetWidth(), ofGetHeight());
             pixels.setFromExternalPixels(p, ofGetWidth(), ofGetHeight(), 3);
@@ -96,7 +101,7 @@ void videoManager::update(){
 			}  
 			
 			bHasPixels = true;
-			
+#endif
 			break;
 			
 			
