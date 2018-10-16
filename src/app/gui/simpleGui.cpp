@@ -173,6 +173,9 @@ bool simpleGui::mouseMoved() {
 	e.x = ofGetMouseX();
 	e.y = ofGetMouseY();
 	mouseMoved(e);
+    
+    return true;
+
 }
 
 bool simpleGui::mouseMoved(ofMouseEventArgs &e ) {
@@ -185,6 +188,8 @@ bool simpleGui::mouseMoved(ofMouseEventArgs &e ) {
 	for ( i=0; i<set->size(); i++) {
 		set->at(i)->mouseMoved(e.x, e.y);	
 	}
+    return true;
+
 }
 
 bool simpleGui::mousePressed(ofMouseEventArgs &e ) {
@@ -197,7 +202,8 @@ bool simpleGui::mousePressed(ofMouseEventArgs &e ) {
 	for ( i=0; i<set->size(); i++) {
 		set->at(i)->mousePressed(e.x, e.y);	
 	}
-	
+    return true;
+
 }
 
 bool simpleGui::mouseReleased(ofMouseEventArgs &e ) {
@@ -210,7 +216,8 @@ bool simpleGui::mouseReleased(ofMouseEventArgs &e ) {
 	for ( i=0; i<set->size(); i++) {
 		set->at(i)->mouseReleased();	
 	}
-	
+    return true;
+
 }
 
 bool simpleGui::mouseDragged(ofMouseEventArgs &e ) {
@@ -224,6 +231,7 @@ bool simpleGui::mouseDragged(ofMouseEventArgs &e ) {
 		set->at(i)->mouseDragged(e.x, e.y, e.button);	
 	}
 	
+    return true;
 }
 
 void simpleGui::update () {
