@@ -13,7 +13,7 @@
 
 #include "ofMain.h"
 #include "fft.h"
-#include "FFTOctaveAnalyzer.h"
+#include "fftOctaveAnalyzer.h"
 
 
 
