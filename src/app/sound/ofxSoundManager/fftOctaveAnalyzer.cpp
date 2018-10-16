@@ -1,5 +1,5 @@
 
-#include "FFTOctaveAnalyzer.h"	
+#include "fftOctaveAnalyzer.h"	
 # include <cmath>
 
 
