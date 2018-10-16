@@ -1,26 +1,24 @@
+# Corrupt Video 
 Corrupt Video™ is an OpenFrameworks based Glitch Art Software allowing its users to glitch and record movies or to corrupt real time videos.
 
 Corrupt™ is a web based Glitch Art Software allowing its user to upload and share corrupted images on corrupt.recyclism.com available since 2005. Corrupt™ was first built with Proce55ing (2004).
 
-This 2011 version built with OpenFrameworks is a collaboration project between Recyclism and Martial Geoffre-Rouland.
+This ~~2011~~ 2018 version built with OpenFrameworks is a collaboration project between Recyclism and Martial Geoffre-Rouland.
 
 Corrupt and Corrupt Video are using the same algorithm, which consists of a binary alteration of the original data. So technically Corrupt damages the data on a binary level, which result in unpredictable and beautiful results.
 
 Get the working version here : http://www.uglitch.com
 
-Working on Mac osx 10.6
+Working on Mac osx 10.9
 
 A template for the data folder can be found here : 
-
 http://www.uglitch.com/app/data.zip
 
-Dependencies ( And many thanks to them ! ) : 
+### Dependencies: 
 
-ofxJson
 ofxOpenCV
-ofxSoundManager
 ofxTimer
-ofxQTVideoSaver
 ofxGifEncoder
-ofxFileDialog
-
+ofxGifDecoder
+ofxPoco
+ofxVideoRecorder
