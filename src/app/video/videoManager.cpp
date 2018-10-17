@@ -39,7 +39,6 @@ void videoManager::setup(int webcamW, int webcamH){
     consoleListener.setup(this);
 #endif
  
-    ofLogNotice("set grabber size ") << webcamW << " " << webcamH;
     videoGrabber.initGrabber(webcamW, webcamH);
 	setVideoMode(CORRUPT_VIDEOMODE_WEBCAM);
     ofAddListener(ofEvents().windowResized, this, &videoManager::windowResized);
@@ -56,18 +55,8 @@ void videoManager::update(){
             videoGrabber.update();
 			
 			if ( videoGrabber.isFrameNew() ) {
-#ifdef OFXRPI_CAMERA
-                pixels.setFromExternalPixels(videoGrabber.getPixels(), width, height, 3);
 
-#else
                 pixels = videoGrabber.getPixels();
-
-#endif
-                
-                // test
-                ofLogNotice("pixels size ") << pixels.getWidth() << " " << pixels.getHeight();
-
-                
 				bHasPixels = true;
 				
 			}	
@@ -180,6 +169,9 @@ void videoManager::setVideoMode(corruptVideoMode mode){
 			width = videoGrabber.getWidth();
 			height = videoGrabber.getHeight();
 			colorMode = OF_IMAGE_COLOR;
+#ifdef OFXRPI_CAMERA
+            colorMode = OF_IMAGE_COLOR_ALPHA;
+#endif
 			break;
 			
 		case CORRUPT_VIDEOMODE_MOVIE:

@@ -844,6 +844,7 @@
 				D418078CBD7A474411314B1D /* OMXCameraSettings.h */,
 				AB826B5B2A3AC3D0BE1814D7 /* TextureEngine.cpp */,
 				912101C668F97F34B861A4B3 /* RPiVideoGrabber.h */,
+				D8DF5B8D9D8F7F699ABE5F52 /* RPiVideoGrabber.cpp */,
 				78F3D74E665C54C0A16E46BC /* DirectEngine.h */,
 				0B29000E2F600AAE98D25A67 /* OMX_Maps.h */,
 				23131385D0F062EFEAB16858 /* DirectDisplay.h */,
@@ -854,7 +855,6 @@
 				3A5D8A149D10F75777BF8429 /* DirectEngine.cpp */,
 				50728E80A5175A408C0A9245 /* TextureEngine.h */,
 				27FB2CBEF92AF71D742698C8 /* ImageFilterCollection.h */,
-				D8DF5B8D9D8F7F699ABE5F52 /* RPiVideoGrabber.cpp */,
 				B0F374B365CBB258CF1E2D99 /* ofxRPiCameraVideoGrabber.cpp */,
 				1AE7E10532F05FDFF3FD2CF9 /* TerminalListener.h */,
 			);
