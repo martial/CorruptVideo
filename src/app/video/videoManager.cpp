@@ -40,8 +40,7 @@ void videoManager::setup(int webcamW, int webcamH){
 #endif
  
 
-   videoGrabber.initGrabber(webcamW, webcamH);
-	// init webcam and set defaultmode
+    videoGrabber.initGrabber(webcamW, webcamH);
 	setVideoMode(CORRUPT_VIDEOMODE_WEBCAM);
     ofAddListener(ofEvents().windowResized, this, &videoManager::windowResized);
 	
@@ -54,13 +53,9 @@ void videoManager::update(){
 		
 		case CORRUPT_VIDEOMODE_WEBCAM:
 			
-			
-            //ofLogNotice("we're in webcam");
-            
             videoGrabber.update();
 			
 			if ( videoGrabber.isFrameNew() ) {
-              //
 
 				pixels = videoGrabber.getPixels();
 				bHasPixels = true;
@@ -121,12 +116,13 @@ void videoManager::videoManager::draw(int x, int y){
 }
 
 void videoManager::draw(int x, int y, float width, float height){
-	
+
 	switch (videoMode) {
 				
 		case CORRUPT_VIDEOMODE_WEBCAM:
 			
 			videoGrabber.draw(x,y,width,height);
+
 			
 			break;
 			
@@ -266,6 +262,7 @@ void videoManager::showWebcamSettings(){
 	videoGrabber.videoSettings();
 #endif
 }
+
 
 
 void videoManager::windowResized(ofResizeEventArgs & e ){

@@ -1174,10 +1174,10 @@
 				CB2952567A7DDAF3BE367336 /* facetrack */,
 				7797BE82DD4578DC7CC35995 /* utils */,
 				965EDB3FA9DE7B7B1FAA12F4 /* gui */,
-				1853B77846BDB07B160FC5BA /* corruptVideoApp.cpp */,
 				5A9864B37C410C6E8FB87859 /* views */,
 				7E7DBC170AA35C40BEC7C85C /* sound */,
 				0FB3B8A59A322B18888BC5D2 /* corruptVideoApp.h */,
+				1853B77846BDB07B160FC5BA /* corruptVideoApp.cpp */,
 			);
 			name = app;
 			sourceTree = "<group>";

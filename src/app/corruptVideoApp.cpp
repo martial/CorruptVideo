@@ -23,7 +23,7 @@ void corruptVideoApp::setup(){
 	
 	faceTrack = NULL;
 		
-	video.setup(640, 480);
+	video.setup(640, 640);
 	glitch.setup();
 	preRecordTimer.setup();
 	recordTimer.setup();
@@ -87,6 +87,7 @@ void corruptVideoApp::draw(){
 	
 
 	ofSetColor(255,255,255);
+    
 	
 	
 	if(glitch.bHasLoaded) {
