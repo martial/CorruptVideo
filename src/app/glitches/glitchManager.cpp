@@ -110,7 +110,10 @@ void glitchManager::glitchThis(unsigned char * pixels, int width, int height, of
 	bufferImg->clear();
 	
 	// set pixels and be sure we're converting it to RGB, we'll need this further for image recording
-	// also alpha is needed for desktop mode 
+	// also alpha is needed for desktop mode
+    
+    ofLogNotice("glitch size ") << width << " " << height;
+
 	
 	bufferImg->setFromPixels(pixels, width, height, colorMode, true);
 	bufferImg->setImageType(OF_IMAGE_COLOR);
@@ -121,7 +124,7 @@ void glitchManager::glitchThis(unsigned char * pixels, int width, int height, of
 	ofSaveImage(bufferImg->getPixels(), *buffer, imgFormat, currentQuality);
 	
 	// send this data to glitch it into memory!
-	currentGlitch->glitch(buffer->getBinaryBuffer(), buffer->size());
+	currentGlitch->glitch(buffer->getData(), buffer->size());
 	
 	buffer->resetLineReader();
 	

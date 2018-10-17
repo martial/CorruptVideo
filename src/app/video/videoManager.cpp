@@ -39,7 +39,7 @@ void videoManager::setup(int webcamW, int webcamH){
     consoleListener.setup(this);
 #endif
  
-
+    ofLogNotice("set grabber size ") << webcamW << " " << webcamH;
     videoGrabber.initGrabber(webcamW, webcamH);
 	setVideoMode(CORRUPT_VIDEOMODE_WEBCAM);
     ofAddListener(ofEvents().windowResized, this, &videoManager::windowResized);
