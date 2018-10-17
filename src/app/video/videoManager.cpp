@@ -37,6 +37,8 @@ void videoManager::setup(int webcamW, int webcamH){
     
 #ifdef OFXRPI_CAMERA
     
+    consoleListener.setup(this);
+
     omxCameraSettings.width = webcamW;
     omxCameraSettings.height = webcamH;
     omxCameraSettings.framerate = 30;
