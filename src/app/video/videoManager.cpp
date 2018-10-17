@@ -272,7 +272,9 @@ float videoManager::getMoviePosition(){
 
 /* for webcam mode*/
 void videoManager::showWebcamSettings(){
+#ifndef OFXRPI_CAMERA
 	videoGrabber.videoSettings();
+#endif
 }
 
 
