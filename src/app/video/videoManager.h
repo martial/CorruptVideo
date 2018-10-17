@@ -25,8 +25,7 @@
 
 #ifdef OFXRPI_CAMERA
 #include "TerminalListener.h"
-#include "ofxRPiCameraVideoGrabber.h"
-#include "ImageFilterCollection.h"
+#include "RPiVideoGrabber.h"
 #endif
 
 enum corruptVideoMode {
@@ -37,9 +36,11 @@ enum corruptVideoMode {
 	CORRUPT_VIDEOMODE_IMGSEARCH = 4
 };
 
-
+#ifdef OFXRPI_CAMERA
+class videoManager : public ofBaseApp, public KeyListener{
+#else
 class videoManager {
-	
+#endif
 public:
 	
 	videoManager();
@@ -89,8 +90,11 @@ private:
     
 #ifdef OFXRPI_CAMERA
     
-    ofxRPiCameraVideoGrabber videoGrabber;
+    TerminalListener consoleListener;
+    RPiVideoGrabber videoGrabber;
     OMXCameraSettings omxCameraSettings;
+    void onCharacterReceived(KeyListenerEventData& e);
+
 #else
     ofVideoGrabber        videoGrabber;
 
