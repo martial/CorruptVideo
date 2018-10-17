@@ -21,6 +21,13 @@
 
 #include "ofMain.h"
 
+#define OFXRPI_CAMERA
+
+#ifdef OFXRPI_CAMERA
+#include "TerminalListener.h"
+#include "ofxRPiCameraVideoGrabber.h"
+#include "ImageFilterCollection.h"
+#endif
 
 enum corruptVideoMode {
 	CORRUPT_VIDEOMODE_OFF = 0,
@@ -79,7 +86,15 @@ private:
 	void				clear();
 	
 	ofVideoPlayer	*	videoPlayer;
-	ofVideoGrabber		videoGrabber;
+    
+#ifdef OFXRPI_CAMERA
+    
+    ofxRPiCameraVideoGrabber videoGrabber;
+    OMXCameraSettings omxCameraSettings;
+#else
+    ofVideoGrabber        videoGrabber;
+
+#endif
 	
 	//unsigned char *		pixels;
     ofPixels            pixels;
