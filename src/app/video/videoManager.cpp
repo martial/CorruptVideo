@@ -56,8 +56,12 @@ void videoManager::update(){
             videoGrabber.update();
 			
 			if ( videoGrabber.isFrameNew() ) {
+#ifdef OFXRPI_CAMERA
+                pixels.setFromExternalPixels(videoGrabber.getPixels(), videoGrabber.getWidth(), videoGrabber.getHeight(), 3);
+#else
+                pixels = videoGrabber.getPixels();
 
-				pixels = videoGrabber.getPixels();
+#endif
                 
                 // test
                 ofLogNotice("pixels size ") << pixels.getWidth() << " " << pixels.getHeight();
