@@ -23,7 +23,7 @@ void corruptVideoApp::setup(){
 	
 	faceTrack = NULL;
 		
-	video.setup(640, 640);
+	video.setup(320, 240);
 	glitch.setup();
 	preRecordTimer.setup();
 	recordTimer.setup();
