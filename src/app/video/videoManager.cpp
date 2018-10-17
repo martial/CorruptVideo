@@ -36,23 +36,11 @@ videoManager::videoManager () {
 void videoManager::setup(int webcamW, int webcamH){
     
 #ifdef OFXRPI_CAMERA
-    
     consoleListener.setup(this);
-
-    omxCameraSettings.width = webcamW;
-    omxCameraSettings.height = webcamH;
-    omxCameraSettings.framerate = 30;
-    omxCameraSettings.enableTexture = true;
-    omxCameraSettings.enablePixels = true;
-    videoGrabber.setup(omxCameraSettings);
-
-    
-#else
-    videoGrabber.initGrabber(webcamW, webcamH);
-
 #endif
-    
-		
+ 
+
+   videoGrabber.initGrabber(webcamW, webcamH);
 	// init webcam and set defaultmode
 	setVideoMode(CORRUPT_VIDEOMODE_WEBCAM);
     ofAddListener(ofEvents().windowResized, this, &videoManager::windowResized);
