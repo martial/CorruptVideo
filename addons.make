@@ -2,5 +2,6 @@ ofxGifDecoder
 ofxGifEncoder
 ofxOpenCv
 ofxPoco
+ofxRPiCameraVideoGrabber
 ofxTimer
 ofxVideoRecorder
