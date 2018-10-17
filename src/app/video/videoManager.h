@@ -93,7 +93,7 @@ private:
     TerminalListener consoleListener;
     RPiVideoGrabber videoGrabber;
     OMXCameraSettings omxCameraSettings;
-    void onCharacterReceived(KeyListenerEventData& e);
+    void onCharacterReceived(KeyListenerEventData& e){};
 
 #else
     ofVideoGrabber        videoGrabber;
