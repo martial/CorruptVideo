@@ -103,16 +103,13 @@ void glitchManager::glitchThis(unsigned char * pixels, int width, int height, of
 	
 	// thanks to the original example by Kyle McDonald
 	// implementation is quite similar, no surprises in there
-	
-	
-	// we clear memory first 
+	// we clear memory first
 	
 	bufferImg->clear();
 	
 	// set pixels and be sure we're converting it to RGB, we'll need this further for image recording
 	// also alpha is needed for desktop mode
     
-    ofLogNotice("glitch size ") << width << " " << height;
 
 	
 	bufferImg->setFromPixels(pixels, width, height, colorMode, true);
