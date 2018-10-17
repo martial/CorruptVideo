@@ -25,8 +25,6 @@ originalCorruptGlitch::originalCorruptGlitch() {
 
 void originalCorruptGlitch::glitch(char * buffer, int filesize) {
 	
-	
-	
 	int scrambleStart = 417;
 	int scrambleEnd = filesize;
 	

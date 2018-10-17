@@ -58,6 +58,11 @@ void videoManager::update(){
 			if ( videoGrabber.isFrameNew() ) {
 
 				pixels = videoGrabber.getPixels();
+                
+                // test
+                ofLogNotice("pixels size ") << pixels.getWidth() << " " << pixels.getHeight();
+
+                
 				bHasPixels = true;
 				
 			}	
