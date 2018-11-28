@@ -21,6 +21,8 @@ void ofApp::setup(){
     
 #ifdef __ARM_ARCH_6__
     
+    
+    ofSetCircleResolution(128);
     //ofRemoveListener(ofEvents().mouseMoved, this, &ofApp::mouseMoved);
     
     ofHideCursor();
@@ -37,6 +39,8 @@ void ofApp::setup(){
     touchPressed = false;
     
     mousePos.set(0,0);
+    
+    logo.load("images/logo.png");
     
 #endif
     
@@ -103,6 +107,8 @@ void ofApp::draw(){
     ofDrawCircle(ofGetWidth() * .5, ofGetHeight() - bottomBarHeight * .5, bottomBarHeight * .5 - 20);
     ofSetColor(255,255);
     ofPopMatrix();
+    
+    logo.draw(0.0, ofGetHeight() - logo.getHeight());
 
 #endif
 	
@@ -144,10 +150,8 @@ void ofApp::mouseMoved(int x, int y) {
     // intensitu
     if( x > bottomBarHeight) {
 
-        intensityPct = ofNormalize(x, bottomBarHeight, ofGetHeight());
+        intensityPct = ofNormalize(y, 0.0, ofGetHeight() - bottomBarHeight);
         app->glitch.setIntensity(intensityPct);
-        
-        
         bMouseMoved = true;
     }
 }

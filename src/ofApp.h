@@ -41,6 +41,8 @@ class ofApp : public ofBaseApp {
         bool touchPressed, bMouseMoved;
         ofPoint mousePos, oldMousePos;
     
+        ofImage logo;
+    
 #endif
     
 };
