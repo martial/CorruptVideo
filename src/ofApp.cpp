@@ -109,7 +109,7 @@ void ofApp::draw(){
     ofPopMatrix();
     
     ofEnableAlphaBlending();
-    logo.draw(0.0, ofGetHeight() - logo.getHeight(), bottomBarHeight, bottomBarHeight);
+    //logo.draw(0.0, ofGetHeight() - bottomBarHeight, bottomBarHeight, bottomBarHeight);
 
 #endif
 	
