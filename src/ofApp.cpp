@@ -149,7 +149,7 @@ void ofApp::mouseMoved(int x, int y) {
     ofLogNotice("Mouse Event Moved") << x << " " << y;
     
     // intensitu
-    if( x > bottomBarHeight) {
+    if( y < ofGetHeight() - bottomBarHeight) {
 
         intensityPct = ofNormalize(y, 0.0, ofGetHeight() - bottomBarHeight);
         app->glitch.setIntensity(intensityPct);
@@ -163,7 +163,7 @@ void ofApp::mousePressed(int x, int y, int button) {
     ofLogNotice("Mouse Event Pressed") << x << " " << y;
     
     
-    if( x < bottomBarHeight) {
+    if( y > ofGetHeight() - bottomBarHeight) {
         
         // record
         app->startRecord();
