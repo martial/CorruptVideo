@@ -40,7 +40,7 @@ void ofApp::setup(){
     
     mousePos.set(0,0);
     
-    logo.load("images/logo.png");
+    logo.load("images/icon.png");
     
 #endif
     
@@ -108,7 +108,8 @@ void ofApp::draw(){
     ofSetColor(255,255);
     ofPopMatrix();
     
-    logo.draw(0.0, ofGetHeight() - logo.getHeight());
+    ofEnableAlphaBlending();
+    logo.draw(0.0, ofGetHeight() - logo.getHeight(), bottomBarHeight, bottomBarHeight);
 
 #endif
 	
