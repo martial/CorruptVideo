@@ -37,7 +37,7 @@ class ofApp : public ofBaseApp {
 #ifdef __linux__
     
         ofxRPiTouch touchTest, touch;
-        bool touchPressed, mouseMoved;
+        bool touchPressed, bMouseMoved;
         ofPoint mousePos, oldMousePos;
     
 #endif

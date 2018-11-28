@@ -4,7 +4,7 @@
 void ofApp::setup(){
     
 #ifdef __linux__
-    mouseMoved = false;
+    bMouseMoved = false;
 #endif
 	
 	ofSetLogLevel(OF_LOG_NOTICE);
@@ -77,12 +77,12 @@ void ofApp::draw(){
     
 #ifdef __linux__
     
-    if( mouseMoved ) {
+    if( bMouseMoved ) {
         ofSetColor(255,255);
-        ofDrawRectangle(ofGetWidth() - 30, ofGetHeight(), 30, ofNormalize(intensityPct, 0.0, ofGetHeight()) * ofGetHeight());        
+        ofDrawRectangle(ofGetWidth() - 30, ofGetHeight(), 30, ofNormalize(intensityPct, 0.0, ofGetHeight()) * ofGetHeight());
     }
     
-    mouseMoved = false;
+    bMouseMoved = false;
 #endif
 	
 }
@@ -127,7 +127,7 @@ void ofApp::mouseMoved(int x, int y) {
         app->glitch.setIntensity(intensityPct);
         
         
-        mouseMoved = true;
+        bMouseMoved = true;
     }
 }
 
