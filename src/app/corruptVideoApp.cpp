@@ -44,7 +44,7 @@ void corruptVideoApp::setup(){
 	gui.setup(&video, &glitch);
 	ofAddListener(gui.guiEvent, this, &corruptVideoApp::onGuiEventHandler );
 	
-	bGuiVisible	   = true;
+	bGuiVisible	   = false;
 	bFaceTrackMode = false;
 	bFFTMode	   = false;
 	bInfoVisible   = false;
