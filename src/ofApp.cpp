@@ -83,6 +83,15 @@ void ofApp::draw(){
     }
     
     bMouseMoved = false;
+    
+    
+    ofSetColor(0,255);
+    ofDrawRectangle(0.0, ofGetHeight() - 100, ofGetWidth(), 100);
+    ofSetColor(255,0,0);
+    ofDrawCircle(ofGetWidth() * .5, ofGetHeight() - 50, 40);
+    ofSetColor(255,255);
+
+
 #endif
 	
 }
