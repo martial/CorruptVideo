@@ -33,6 +33,7 @@ class ofApp : public ofBaseApp {
 		updateCheck		  updateChecker;
     
         float intensityPct;
+        float bottomBarHeight;
  
 #ifdef __linux__
     
