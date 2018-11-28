@@ -65,6 +65,8 @@ public:
 	void exit();
     
     glitchManager    glitch;
+    
+    bool bIsRecording;
 
 	
 private:
