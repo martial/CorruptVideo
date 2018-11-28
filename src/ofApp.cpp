@@ -90,7 +90,7 @@ void ofApp::draw(){
     ofSetColor(0,255);
     ofDrawRectangle(0.0, ofGetHeight() - bottomBarHeight, ofGetWidth(), bottomBarHeight);
     ofSetColor(255,0,0);
-    ofDrawCircle(ofGetWidth() * .5, ofGetHeight() - bottomBarHeight * .5, bottomBarHeight * . 5 - 20);
+    ofDrawCircle(ofGetWidth() * .5, ofGetHeight() - bottomBarHeight * .5, bottomBarHeight * .5 - 20);
     ofSetColor(255,255);
     ofPopMatrix();
 
