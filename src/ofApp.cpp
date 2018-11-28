@@ -10,6 +10,30 @@ void ofApp::setup(){
 	app = new corruptVideoApp();
 	app->setup();
 	ofSoundStreamSetup(0,2,this, 44100, 128, 4);
+    
+    
+#ifdef __ARM_ARCH_6__
+    
+    //ofRemoveListener(ofEvents().mouseMoved, this, &ofApp::mouseMoved);
+    
+    ofHideCursor();
+    // this is ugly
+    if(touchTest.init("/dev/input/event0"))
+        touch.init("/dev/input/event0");
+    
+    if(touchTest.init("/dev/input/event1"))
+        touch.init("/dev/input/event1");
+    
+    if(touchTest.init("/dev/input/event2"))
+        touch.init("/dev/input/event2");
+    
+    touchPressed = false;
+    
+    mousePos.set(0,0);
+    
+#endif
+    
+    
 }
 
 //--------------------------------------------------------------
@@ -17,6 +41,11 @@ void ofApp::update(){
     
 	if(updateChecker.state == "OK") app->update();
 
+#ifdef __ARM_ARCH_6__
+    
+    handleTouchScreen();
+    
+#endif
     
     
 }
@@ -65,5 +94,51 @@ void ofApp::windowResized(int w, int h){
 //--------------------------------------------------------------
 void ofApp::gotMessage(ofMessage msg){
 
+}
+
+void ofApp::mouseMoved(int x, int y) {
+    
+    ofLogNotice("Mouse Event Moved") << x << " " << y;
+}
+
+
+void ofApp::mousePressed(int x, int y, int button) {
+    
+    ofLogNotice("Mouse Event Pressed") << x << " " << y;
+}
+
+
+void ofApp::handleTouchScreen() {
+    
+#ifdef __ARM_ARCH_6__
+    
+ //  ofLogNotice("Mouse Event") << touch.getAbsPos().x << " " << touch.getAbsPos().y;
+    
+    ofPoint current;
+    current.set( touch.getAbsPos().x,  touch.getAbsPos().y);
+    
+    if(current != mousePos) {
+        mouseMoved(touch.getAbsPos().x,  touch.getAbsPos().y);
+        mousePos.set( touch.getAbsPos().x,  touch.getAbsPos().y);
+
+    }
+
+    
+
+    
+    if ( touch.getButton() != touchPressed) {
+        
+        touchPressed = touch.getButton();
+        
+        if(touchPressed) {
+            mousePressed(touch.getAbsPos().x,  touch.getAbsPos().y, touch.getMTSlot());
+        } else {
+            mouseReleased(touch.getAbsPos().x,  touch.getAbsPos().y, touch.getMTSlot());
+        }
+        
+       
+        
+    }
+#endif
 }
 
