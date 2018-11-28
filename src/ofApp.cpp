@@ -17,6 +17,7 @@ void ofApp::setup(){
     
     intensityPct = 1.0;
     
+    bottomBarHeight = 80;
     
 #ifdef __ARM_ARCH_6__
     
@@ -86,11 +87,10 @@ void ofApp::draw(){
     bMouseMoved = false;
     
     ofPushMatrix();
-    ofTranslate(0.0, 50);
     ofSetColor(0,255);
-    ofDrawRectangle(0.0, ofGetHeight() - 100, ofGetWidth(), 100);
+    ofDrawRectangle(0.0, ofGetHeight() - bottomBarHeight, ofGetWidth(), bottomBarHeight);
     ofSetColor(255,0,0);
-    ofDrawCircle(ofGetWidth() * .5, ofGetHeight() - 50, 40);
+    ofDrawCircle(ofGetWidth() * .5, ofGetHeight() - bottomBarHeight * .5, bottomBarHeight * . 5 - 20);
     ofSetColor(255,255);
     ofPopMatrix();
 
@@ -132,9 +132,9 @@ void ofApp::mouseMoved(int x, int y) {
     ofLogNotice("Mouse Event Moved") << x << " " << y;
     
     // intensitu
-    if( x > 100) {
+    if( x > bottomBarHeight) {
 
-        intensityPct = ofNormalize(x, 100, ofGetHeight());
+        intensityPct = ofNormalize(x, bottomBarHeight, ofGetHeight());
         app->glitch.setIntensity(intensityPct);
         
         
@@ -148,7 +148,7 @@ void ofApp::mousePressed(int x, int y, int button) {
     ofLogNotice("Mouse Event Pressed") << x << " " << y;
     
     
-    if( x < 100) {
+    if( x < bottomBarHeight) {
         
         // record
         app->startRecord();
