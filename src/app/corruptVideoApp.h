@@ -63,12 +63,14 @@ public:
 	void audioIn(float * input, int bufferSize);
 	
 	void exit();
+    
+    glitchManager    glitch;
+
 	
 private:
 	
 	simpleGui		gui;
 	videoManager	video;
-	glitchManager	glitch;
 	recordManager	recorder;
 	CustomTimer			preRecordTimer, recordTimer;
 	gifWebUploader	gifUpload;
