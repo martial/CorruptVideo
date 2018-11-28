@@ -39,6 +39,7 @@ void ofApp::setup(){
     
 #endif
     
+    ofToggleFullscreen();
 
     
 }
