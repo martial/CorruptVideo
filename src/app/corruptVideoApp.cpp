@@ -51,7 +51,7 @@ void corruptVideoApp::setup(){
 	bFFTMode	   = false;
 	bInfoVisible   = false;
 	
-	setRecordDuration(11000);
+	setRecordDuration(5000);
 	setPreRecordDelay(4000);
 	setGifUpload("bit20");
 	
@@ -128,6 +128,9 @@ void corruptVideoApp::draw(){
 void corruptVideoApp::startRecord(){
     
     ofLogNotice("start  record..");
+    
+    if(bIsRecording)
+        return;
 
 	
 	// delete event by security
