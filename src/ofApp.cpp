@@ -2,6 +2,10 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+    
+#ifdef __linux__
+    mouseMoved = false;
+#endif
 	
 	ofSetLogLevel(OF_LOG_NOTICE);
 	ofSetFrameRate(24);
@@ -10,6 +14,8 @@ void ofApp::setup(){
 	app = new corruptVideoApp();
 	app->setup();
 	ofSoundStreamSetup(0,2,this, 44100, 128, 4);
+    
+    intensityPct = 1.0;
     
     
 #ifdef __ARM_ARCH_6__
@@ -33,6 +39,7 @@ void ofApp::setup(){
     
 #endif
     
+
     
 }
 
@@ -64,6 +71,19 @@ void ofApp::draw(){
 		updateChecker.draw();
 		
 	}
+    
+    
+    
+    
+#ifdef __linux__
+    
+    if( mouseMoved ) {
+        ofSetColor(255,255);
+        ofDrawRectangle(ofGetWidth() - 30, ofGetHeight(), 30, ofNormalize(intensityPct, 0.0, ofGetHeight()) * ofGetHeight());        
+    }
+    
+    mouseMoved = false;
+#endif
 	
 }
 
@@ -103,8 +123,11 @@ void ofApp::mouseMoved(int x, int y) {
     // intensitu
     if( x > 100) {
 
-        float intensityPct = ofNormalize(x, 0.0, ofGetWidth());
+        intensityPct = ofNormalize(x, 100, ofGetHeight());
         app->glitch.setIntensity(intensityPct);
+        
+        
+        mouseMoved = true;
     }
 }
 

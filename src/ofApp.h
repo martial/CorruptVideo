@@ -8,9 +8,10 @@
 #include "ofxRPiTouch.h"
 #endif
 
-class ofApp : public ofBaseApp{
+class ofApp : public ofBaseApp {
 
 	public:
+    
 		void setup();
 		void update();
 		void draw();
@@ -28,15 +29,17 @@ class ofApp : public ofBaseApp{
     
         void handleTouchScreen();
 
-	
 		corruptVideoApp * app;
 		updateCheck		  updateChecker;
     
-    
-    
+        float intensityPct;
+ 
 #ifdef __linux__
-    ofxRPiTouch touchTest, touch;
-    bool touchPressed;
-    ofPoint mousePos, oldMousePos;
+    
+        ofxRPiTouch touchTest, touch;
+        bool touchPressed, mouseMoved;
+        ofPoint mousePos, oldMousePos;
+    
 #endif
+    
 };
