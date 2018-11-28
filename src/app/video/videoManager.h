@@ -21,7 +21,7 @@
 
 #include "ofMain.h"
 
-#define OFXRPI_CAMERA
+//#define OFXRPI_CAMERA
 
 #ifdef OFXRPI_CAMERA
 #include "TerminalListener.h"

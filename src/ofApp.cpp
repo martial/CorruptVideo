@@ -17,6 +17,8 @@ void ofApp::update(){
     
 	if(updateChecker.state == "OK") app->update();
 
+    
+    
 }
 
 //--------------------------------------------------------------
