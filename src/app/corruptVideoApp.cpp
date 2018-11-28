@@ -53,7 +53,7 @@ void corruptVideoApp::setup(){
 	
 	setRecordDuration(11000);
 	setPreRecordDelay(4000);
-	setGifUpload("public");
+	setGifUpload("bit20");
 	
 	display.showMessage("Welcome to youglitch.", 5000);
 	
