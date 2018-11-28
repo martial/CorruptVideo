@@ -22,6 +22,8 @@
 void corruptVideoApp::setup(){
 	
 	faceTrack = NULL;
+    
+    bIsRecording = false;
 		
 	video.setup(320, 240);
 	glitch.setup();
@@ -143,6 +145,8 @@ void corruptVideoApp::startRecord(){
 	// we might want to hide the GUI here
 	gui.disable();
 	gui.changeSet(0);
+    
+    bIsRecording = true;
 }
 
 
@@ -151,6 +155,8 @@ void corruptVideoApp::stopRecord(){
 	ofRemoveListener(recordTimer.timerDoneEvent, this, &corruptVideoApp::stopRecord);
 	recorder.stopRecord();
 	gui.enable();
+    
+    bIsRecording = false;
 	
 }
 
