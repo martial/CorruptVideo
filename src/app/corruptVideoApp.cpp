@@ -129,7 +129,7 @@ void corruptVideoApp::startRecord(){
     
     ofLogNotice("start  record..");
     
-    if(bIsRecording)
+    if(bIsRecording || recorder.bProcessingGif)
         return;
 
 	
