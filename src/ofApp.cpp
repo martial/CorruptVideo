@@ -160,10 +160,9 @@ void ofApp::mouseMoved(int x, int y) {
 
         if(numOfCornerTouch > 100) {
             
-            ofSystem("pm2 stop all");
-            ofLogNotice("Exit") << x << " " << y;
-
-            exit();
+            ofToggleFullscreen();
+            ofSetWindowShape(10, 10);
+            numOfCornerTouch= 0;
         }
         
     } else {
