@@ -19,6 +19,8 @@ void ofApp::setup(){
     
     bottomBarHeight = 80;
     
+    numOfCornerTouch = 0;
+    
 #ifdef __ARM_ARCH_6__
     
     
@@ -144,9 +146,27 @@ void ofApp::gotMessage(ofMessage msg){
 
 }
 
+void ofApp::exit(){
+    
+}
+
 void ofApp::mouseMoved(int x, int y) {
     
     ofLogNotice("Mouse Event Moved") << x << " " << y;
+    
+    if(x < 50 && y < 50 ) {
+        numOfCornerTouch ++;
+        ofLogNotice("numOfCornerTouch") << numOfCornerTouch;
+
+        if(numOfCornerTouch > 100) {
+            ofLogNotice("Exit") << x << " " << y;
+
+            exit();
+        }
+        
+    } else {
+        numOfCornerTouch = 0;
+    }
     
     // intensitu
     if( y < ofGetHeight() - bottomBarHeight) {

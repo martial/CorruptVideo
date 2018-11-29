@@ -26,6 +26,7 @@ class ofApp : public ofBaseApp {
 		//void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 		void audioIn(float * input, int bufferSize, int nChannels);
+        void exit();
     
         void handleTouchScreen();
 
@@ -34,6 +35,8 @@ class ofApp : public ofBaseApp {
     
         float intensityPct;
         float bottomBarHeight;
+    
+        int numOfCornerTouch;
  
 #ifdef __linux__
     
