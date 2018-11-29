@@ -37,6 +37,7 @@ class ofApp : public ofBaseApp {
         float bottomBarHeight;
     
         int numOfCornerTouch;
+        bool bShowRecordBtn;
  
 #ifdef __linux__
     
