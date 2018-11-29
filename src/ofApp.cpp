@@ -172,7 +172,8 @@ void ofApp::mouseMoved(int x, int y) {
     // intensitu
     if( y < ofGetHeight() - bottomBarHeight) {
 
-        intensityPct = ofNormalize(y, 0.0, ofGetHeight() - bottomBarHeight);
+        intensityPct = ofMap(y, 0.0, ofGetHeight() - bottomBarHeight, .75, 0);
+        
         app->glitch.setIntensity(intensityPct);
         bMouseMoved = true;
     }
