@@ -3,8 +3,13 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     
+    
+    
 #ifdef __linux__
     bMouseMoved = false;
+    
+    ofSystem("sudo rm -rf ~/openFrameworks/apps/myApps/CorruptVideo/bin/data/your_glitches");
+
 #endif
 	
 	ofSetLogLevel(OF_LOG_NOTICE);
