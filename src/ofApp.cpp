@@ -159,6 +159,8 @@ void ofApp::mouseMoved(int x, int y) {
         ofLogNotice("numOfCornerTouch") << numOfCornerTouch;
 
         if(numOfCornerTouch > 100) {
+            
+            ofSystem("pm2 stop all");
             ofLogNotice("Exit") << x << " " << y;
 
             exit();
