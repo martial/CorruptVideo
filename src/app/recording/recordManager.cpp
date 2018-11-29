@@ -95,6 +95,7 @@ void recordManager::setupRecording(int width, int height) {
 	
 	
 	// setup gifSaver
+    gifSaver.reset();
 	gifSaver.setup(width, height, .15, 32);
 	
 	
